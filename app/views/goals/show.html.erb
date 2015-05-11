@@ -5,5 +5,15 @@
   <%= @goal.description %>
 </p>
 
+<p><%= link_to "New Entry", new_goal_entry_path(@goal) %></p>
+
+<% if @goal.entries %>
+  <% @goal.entries.each do |entry| %>
+    <p><%= entry.content %></p>
+  <% end %>
+<% else %>
+  <strong>No Entries</strong>
+<% end %>
+
 <%= link_to 'Edit', edit_goal_path(@goal) %> |
 <%= link_to 'Back', goals_path %>
