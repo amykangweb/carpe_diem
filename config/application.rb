@@ -8,6 +8,13 @@ Bundler.require(*Rails.groups)
 
 module CarpeDiem
   class Application < Rails::Application
+    # Don't auto-generate spec files
+    config.generators do |g|
+      g.controller_specs false
+      g.view_specs false
+      g.helper_specs false
+      g.routing_specs false
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
