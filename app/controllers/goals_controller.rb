@@ -1,5 +1,7 @@
 class GoalsController < ApplicationController
   before_action :set_goal, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_member!, only: [:new, :create, :edit, :update,
+    :destroy]
 
   # GET /goals
   # GET /goals.json

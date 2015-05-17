@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :goals do
-    resources :entries
+  devise_for :users
+
+  resources :users do
+    resources :goals do
+      resources :entries
+    end
   end
   root "goals#index"
   # The priority is based upon order of creation: first created -> highest priority.
