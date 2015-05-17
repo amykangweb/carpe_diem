@@ -29,6 +29,7 @@ class EntriesController < ApplicationController
   def create
     @entry = Entry.new(entry_params)
     @entry.goal_id = @goal.id
+    @entry.user_id = current_user.id
 
     respond_to do |format|
       if @entry.save

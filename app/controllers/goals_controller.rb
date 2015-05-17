@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
   before_action :set_goal, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_member!, only: [:new, :create, :edit, :update,
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update,
     :destroy]
 
   # GET /goals
@@ -27,6 +27,7 @@ class GoalsController < ApplicationController
   # POST /goals.json
   def create
     @goal = Goal.new(goal_params)
+    @goal.user_id = current_user.id
 
     respond_to do |format|
       if @goal.save
