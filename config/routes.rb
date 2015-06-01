@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :goals do
     resources :entries
   end
-  root "goals#index"
+  root 'goals#index'
+
+  match 'users/show', to: 'users#show', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
