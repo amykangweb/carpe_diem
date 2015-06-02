@@ -10,13 +10,19 @@ def sign_in
   click_button "Log in"
 end
 
-def create_goal(options={})
-  options[:description] = "Learn to paint"
-
+def create_goal(description=nil)
   visit '/goals'
   click_link "New Goal"
   expect(page).to have_content("New Goal")
 
-  fill_in "Description", with: options[:description]
+  fill_in "Description", with: description
   click_button "Create Goal"
+end
+
+def create_entry(content=nil)
+  click_link "New Entry"
+  expect(page).to have_content("New Entry")
+
+  fill_in "Content", with: content
+  click_button "Create Entry"
 end
