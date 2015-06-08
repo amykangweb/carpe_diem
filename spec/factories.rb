@@ -1,6 +1,4 @@
-FactoryGirl.define do  factory :cheer do
-    
-  end
+FactoryGirl.define do
 
   factory :user do
     username "Wilbur"
