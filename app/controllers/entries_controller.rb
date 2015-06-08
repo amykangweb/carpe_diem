@@ -1,8 +1,17 @@
 class EntriesController < ApplicationController
-  before_action :set_entry, only: [:show, :edit, :update, :destroy]
+  before_action :set_entry, only: [:cheer, :show, :edit, :update, :destroy]
   before_action :set_goal
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update,
+  before_action :authenticate_user!, only: [:cheer, :new, :create, :edit, :update,
     :destroy]
+
+  def cheer
+    @cheered = @entry.cheers.create(user_id: current_user.id)
+    if @cheered.save
+      redirect_to @goal, notice: "Thank you for cheering!"
+    else
+      redirect_to @goal, alert: "You have already cheered this."
+    end
+  end
 
   # GET /entries
   # GET /entries.json

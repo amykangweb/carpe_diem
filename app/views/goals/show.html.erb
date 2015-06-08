@@ -1,12 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong><%= @goal.user.username %></strong>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @goal.description %>
+  <strong><%= link_to @goal.user.username, @goal.user %><%= " wants to #{@goal.description}" %></strong>
 </p>
 
 <p><%= link_to "New Entry", new_goal_entry_path(@goal) %></p>
@@ -15,6 +10,14 @@
   <% if @goal.entries %>
     <% @goal.entries.each do |entry| %>
       <li><%= entry.content %></li>
+
+      <span><%= link_to "#{entry.cheering_users.count} cheers", cheer_goal_entry_path(@goal, entry), method: :post %></span>
+
+      <br><% entry.cheering_users.each do |user| %>
+            <%= "#{user.username} cheered this." %>
+          <% end %>
+
+          <p>
     <% end %>
   <% else %>
     <strong><li>No Entries</li></strong>

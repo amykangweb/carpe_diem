@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :goals do
-    resources :entries
+    resources :entries do
+      member do
+        post :cheer
+      end
+    end
   end
   root 'goals#index'
 
