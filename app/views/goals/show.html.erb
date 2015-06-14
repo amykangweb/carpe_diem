@@ -1,7 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong><%= link_to @goal.user.username, @goal.user %><%= " wants to #{@goal.description}" %></strong>
+  <strong><%= link_to @user.username, @user %><%= " wants to #{@goal.description}" %></strong>
+</p>
+
+<p>
+  <% if user_signed_in? && current_user != @user %>
+    <% if current_user.following?(@user) %>
+      <%= render partial: 'friendships/unfollow' %>
+    <% else %>
+      <%= render partial: 'friendships/follow' %>
+    <% end %>
+  <% end %>
 </p>
 
 <p><%= link_to "New Entry", new_goal_entry_path(@goal) %></p>

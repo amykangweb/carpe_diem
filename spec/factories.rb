@@ -1,4 +1,7 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :friend do
+    
+  end
+
 
   factory :user do
     username "Wilbur"
