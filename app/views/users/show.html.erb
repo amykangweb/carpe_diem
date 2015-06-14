@@ -10,10 +10,15 @@
   <% end %>
 </p>
 
-
-<% @user.goals.each do |goal| %>
-  <%= link_to goal.description, goal %>
+<% unless !user_signed_in? || current_user != @user %>
+  <p><%= link_to 'Activity Feed', user_feed_path(@user) %></p>
 <% end %>
+
+<ul>
+<% @user.goals.each do |goal| %>
+  <li><%= link_to goal.description, goal %></li>
+<% end %>
+</ul>
 
 <h2>Following</h2>
 <ul class="following">
