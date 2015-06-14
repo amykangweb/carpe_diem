@@ -1,7 +1,4 @@
-def sign_in
-  user = FactoryGirl.build(:user)
-  user.save
-
+def sign_in(user)
   visit '/goals'
   click_link "Sign In"
 

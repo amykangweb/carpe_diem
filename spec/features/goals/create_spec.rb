@@ -3,7 +3,9 @@ require 'support/test_helpers'
 
 describe "Creating goal" do
   before do
-    sign_in
+    @user = FactoryGirl.build(:user)
+    @user.save
+    sign_in(@user)
   end
 
   it "redirects to the goal page on success" do

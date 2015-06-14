@@ -3,7 +3,9 @@ require 'support/test_helpers'
 
 describe 'Cheering entries' do
   before do
-    sign_in
+    @user = FactoryGirl.build(:user)
+    @user.save
+    sign_in(@user)
     create_goal('Find a job')
     create_entry('Fill out applications')
   end

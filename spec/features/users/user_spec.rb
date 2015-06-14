@@ -3,8 +3,8 @@ require 'support/test_helpers'
 
 describe 'User' do
   before do
-    user = FactoryGirl.build(:user)
-    user.save
+    @user = FactoryGirl.build(:user)
+    @user.save
   end
 
   def sign_up(username=nil)
@@ -30,7 +30,7 @@ describe 'User' do
   end
 
   it 'redirects to home page on successful sign in' do
-    sign_in
+    sign_in(@user)
     expect(page).to have_content('Signed in successfully.')
   end
 end

@@ -3,7 +3,9 @@ require 'support/test_helpers'
 
 describe "Creating entry items" do
   before do
-    sign_in
+    @user = FactoryGirl.build(:user)
+    @user.save
+    sign_in(@user)
     create_goal("Learn to paint")
   end
 
