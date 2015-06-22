@@ -11,7 +11,7 @@
   <tbody>
     <% @goals.each do |goal| %>
       <tr>
-        <td><strong><%= link_to goal.user.username, goal.user %></strong></td>
+        <td><strong><%= link_to goal.user.username.titleize, goal.user %></strong></td>
         <td><%= " wants to " %></td>
         <td><strong><%= link_to goal.description, goal %></strong></td>
       </tr>
@@ -22,6 +22,13 @@
     <% end %>
   </tbody>
 </table>
+
+<p>
+  <% Tag.top_tags.shuffle.each do |tag| %>
+    <%= link_to tag.name, tag_path(tag),
+    class: (Tag.size?(tag)) %>
+  <% end %>
+</p>
 
 <br>
 

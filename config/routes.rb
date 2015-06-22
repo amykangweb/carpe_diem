@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :tags do
+    get :show
+  end
+
   resources :friendships
   devise_for :users
 

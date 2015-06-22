@@ -1,4 +1,11 @@
-FactoryGirl.define do  factory :friend do
+FactoryGirl.define do  factory :tagging do
+    tag nil
+goal nil
+  end
+  factory :tag do
+    name "MyString"
+  end
+  factory :friend do
     
   end
 
