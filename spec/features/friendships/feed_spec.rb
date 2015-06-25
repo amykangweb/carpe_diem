@@ -3,13 +3,7 @@ require 'support/test_helpers'
 
 describe 'Friendships' do
   before do
-    @user2 = FactoryGirl.build(:user, username: 'Amy', email: 'amy@mail.com',
-                                password: 'password')
-    @user2.save
-    sign_in(@user2)
-    create_goal('Learn to play the piano.')
-    create_entry('Buy a piano.')
-    click_link 'Sign Out'
+    create_friend
     @user = FactoryGirl.build(:user)
     @user.save
     sign_in(@user)

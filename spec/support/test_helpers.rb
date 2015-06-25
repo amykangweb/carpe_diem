@@ -7,6 +7,16 @@ def sign_in(user)
   click_button "Log in"
 end
 
+def create_friend
+  @user2 = FactoryGirl.build(:user, username: 'Amy', email: 'amy@mail.com',
+                              password: 'password')
+  @user2.save
+  sign_in(@user2)
+  create_goal('Learn to play the piano.')
+  create_entry('Buy a piano.')
+  click_link 'Sign Out'
+end
+
 def create_goal(description=nil)
   visit '/goals'
   click_link "New Goal"

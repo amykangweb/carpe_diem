@@ -1,14 +1,4 @@
-FactoryGirl.define do  factory :tagging do
-    tag nil
-goal nil
-  end
-  factory :tag do
-    name "MyString"
-  end
-  factory :friend do
-    
-  end
-
+FactoryGirl.define do
 
   factory :user do
     username "Wilbur"

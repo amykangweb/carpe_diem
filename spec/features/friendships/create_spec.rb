@@ -3,12 +3,7 @@ require 'support/test_helpers'
 
 describe 'Friendships' do
   before do
-    @user2 = FactoryGirl.build(:user, username: 'Amy', email: 'amy@mail.com',
-                                password: 'password')
-    @user2.save
-    sign_in(@user2)
-    create_goal('Learn to play the piano.')
-    click_link 'Sign Out'
+    create_friend
   end
 
   context 'returns success message when user followed' do
