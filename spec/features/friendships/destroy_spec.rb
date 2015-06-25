@@ -21,6 +21,7 @@ describe 'Friendships' do
       click_button 'Unfollow'
       expect(page).to have_content('Successfully unfollowed user.')
       click_link 'Profile'
+      click_link 'Following (0)'
 
       within('ul.following') do
         expect(page).to_not have_link('Amy')
@@ -32,6 +33,7 @@ describe 'Friendships' do
       click_button 'Unfollow'
       expect(page).to have_content('Successfully unfollowed user.')
       click_link 'Profile'
+      click_link 'Following (0)'
 
       within('ul.following') do
         expect(page).to_not have_link('Amy')

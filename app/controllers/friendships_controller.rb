@@ -1,5 +1,5 @@
 class FriendshipsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create, :destroy]
 
   def create
     @friendship = current_user.friendships.build(friend_id: params[:friend_id])

@@ -4,11 +4,14 @@ Rails.application.routes.draw do
   end
 
   resources :friendships
+
   devise_for :users
 
   resources :users do
     get :feed
     get :show
+    get :followers
+    get :following
   end
 
   resources :goals do

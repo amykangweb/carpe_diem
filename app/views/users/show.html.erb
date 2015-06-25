@@ -1,5 +1,15 @@
 <h1><%= @user.username %></h1>
 
+<ul>
+
+  <li><%= link_to "Followers (#{@user.followers.count})",
+  user_followers_path(@user) %></li>
+
+  <li><%= link_to "Following (#{@user.friendships.count})",
+  user_following_path(@user) %></li>
+
+</ul>
+
 <p>
   <% if user_signed_in? && current_user != @user %>
     <% if current_user.following?(@user) %>
@@ -18,25 +28,6 @@
 <% @user.goals.each do |goal| %>
   <li><%= link_to goal.description, goal %></li>
 <% end %>
-</ul>
-
-<h2>Following</h2>
-<ul class="following">
-  <% @user.friendships.each do |user| %>
-    <li>
-    <%= link_to user.friend.username, user.friend %>
-    <span><%= link_to 'unfollow', user, method: :delete %></span>
-    </li>
-  <% end %>
-</ul>
-
-<h2>Followers</h2>
-<ul class="followers">
-  <% @user.followers.each do |user| %>
-    <li>
-      <%= link_to user.username, user %>
-    </li>
-  <% end %>
 </ul>
 
 <p><%= link_to 'Back', root_url %></p>

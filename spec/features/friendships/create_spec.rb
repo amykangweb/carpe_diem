@@ -18,6 +18,7 @@ describe 'Friendships' do
       click_button 'Follow'
       expect(page).to have_content('Successfully followed user.')
       click_link 'Profile'
+      click_link 'Following (1)'
 
       within('ul.following') do
         expect(page).to have_link('Amy')
@@ -29,6 +30,7 @@ describe 'Friendships' do
       click_button 'Follow'
       expect(page).to have_content('Successfully followed user.')
       click_link 'Profile'
+      click_link 'Following (1)'
 
       within('ul.following') do
         expect(page).to have_link('Amy')

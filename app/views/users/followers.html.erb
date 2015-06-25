@@ -1,0 +1,8 @@
+<h2>Followers</h2>
+<ul class="followers">
+  <% @user.followers.each do |user| %>
+    <li>
+      <%= link_to user.username, user %>
+    </li>
+  <% end %>
+</ul>

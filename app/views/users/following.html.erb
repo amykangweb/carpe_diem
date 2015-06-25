@@ -1,0 +1,9 @@
+<h2>Following</h2>
+<ul class="following">
+  <% @user.friendships.each do |user| %>
+    <li>
+    <%= link_to user.friend.username, user.friend %>
+    <span><%= link_to 'unfollow', user, method: :delete %></span>
+    </li>
+  <% end %>
+</ul>
