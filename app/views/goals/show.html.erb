@@ -43,3 +43,9 @@
 
 <%= link_to 'Edit', edit_goal_path(@goal) %> |
 <%= link_to 'Back', goals_path %>
+
+<%= render partial: 'comments/form', goal: @goal %>
+
+<% @goal.comments.each do |comment| %>
+  <p><strong><%= comment.user.username %>:</strong> <%= comment.body %><p>
+<% end %>

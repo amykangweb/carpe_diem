@@ -29,6 +29,6 @@ class User < ActiveRecord::Base
         end
       end
     end
-    @all = all.sort_by(&:created_at).reverse
+    all.sort_by(&:created_at).reverse
   end
 end

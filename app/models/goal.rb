@@ -1,6 +1,7 @@
 class Goal < ActiveRecord::Base
   belongs_to :user
   has_many :entries, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :taggings
   has_many :tags, through: :taggings
   validates :description, presence: true

@@ -13,6 +13,7 @@ class GoalsController < ApplicationController
   # GET /goals/1.json
   def show
     @user = @goal.user
+    @comment = Comment.new
   end
 
   # GET /goals/new

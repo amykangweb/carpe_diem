@@ -3,8 +3,7 @@ class Tag < ActiveRecord::Base
   has_many :goals, through: :taggings
 
   def self.top_tags
-    newest = Tag.all.sort_by(&:created_at).reverse.first(40)
-    final = newest.sort_by { |t| t.taggings.count }.reverse
+    Tag.last(40).sort_by { |t| t.taggings.count }.reverse
   end
 
   def self.size?(obj)
