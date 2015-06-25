@@ -21,11 +21,11 @@
     <% @goal.entries.each do |entry| %>
       <li><%= entry.content %></li>
 
-      <span><%= link_to "#{entry.cheering_users.count} cheers", cheer_goal_entry_path(@goal, entry), method: :post %></span>
-
-      <br><% entry.cheering_users.each do |user| %>
-            <%= "#{user.username} cheered this." %>
-          <% end %>
+      <span>
+        <%= link_to "View Entry", goal_entry_path(@goal, entry) %>&nbsp;
+        <%= link_to "#{entry.cheering_users.count} cheers",
+        cheer_goal_entry_path(@goal, entry), method: :post %>
+      </span>
 
           <p>
     <% end %>

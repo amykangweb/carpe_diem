@@ -5,5 +5,15 @@
   <%= @entry.content %>
 </p>
 
-<%= link_to 'Edit', edit_entry_path(@entry) %> |
-<%= link_to 'Back', entries_path %>
+<p>
+  <%= link_to "#{@entry.cheering_users.count} cheers",
+  cheer_goal_entry_path(@goal, @entry), method: :post %>
+</p>
+
+<ul>
+  <% @entry.cheering_users.each do |user| %>
+    <li><%= link_to user.username, user %> cheered this.</li>
+  <% end %>
+</ul>
+
+<%= link_to 'Goal', goal_path(@goal) %>

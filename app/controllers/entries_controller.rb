@@ -7,9 +7,9 @@ class EntriesController < ApplicationController
   def cheer
     @cheered = @entry.cheers.create(user_id: current_user.id)
     if @cheered.save
-      redirect_to @goal, notice: "Thank you for cheering!"
+      redirect_to :back, notice: "Thank you for cheering!"
     else
-      redirect_to @goal, alert: "You have already cheered this."
+      redirect_to :back, alert: "You have already cheered this."
     end
   end
 
