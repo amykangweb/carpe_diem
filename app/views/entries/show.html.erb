@@ -17,3 +17,9 @@
 </ul>
 
 <%= link_to 'Goal', goal_path(@goal) %>
+
+<%= render partial: 'comments/form', goal: @goal %>
+
+<% @entry.comments.each do |comment| %>
+  <p><strong><%= comment.user.username %>:</strong> <%= comment.body %><p>
+<% end %>

@@ -22,6 +22,7 @@ class EntriesController < ApplicationController
   # GET /entries/1
   # GET /entries/1.json
   def show
+    @comment = Comment.new
   end
 
   # GET /entries/new

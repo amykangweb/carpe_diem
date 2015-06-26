@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /comments
   # GET /comments.json
@@ -24,10 +25,10 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @goal = Goal.find(params[:goal_id])
+    @entry = Entry.find(params[:entry_id])
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
-    @comment.goal_id = @goal.id
+    @comment.entry_id = @entry.id
 
     respond_to do |format|
       if @comment.save

@@ -9,19 +9,20 @@ describe "Comments" do
     sign_in(@user)
   end
 
-  it "redirects to goal page upon successful creation" do
-    visit '/goals'
-    click_link 'Learn to play the piano.'
-    fill_in 'Comment', with: 'Me too.'
-    click_button 'Create Comment'
+  it "page shows comment when valid comment" do
+    create_comment('Me too.')
     expect(page).to have_content('Me too.')
   end
 
   it "shows error message when comment is blank" do
-    visit '/goals'
-    click_link 'Learn to play the piano.'
-    fill_in 'Comment', with: ''
-    click_button 'Create Comment'
+    create_comment('')
     expect(page).to have_content("Comment can't be blank")
+  end
+
+  it "redirects to sign in page when user not signed in" do
+    click_link 'Sign Out'
+    create_comment('Me too.')
+    expect(page).to have_content('You need to sign in or sign up before
+    continuing.')
   end
 end

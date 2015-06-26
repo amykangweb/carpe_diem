@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   end
 
   resources :goals do
-    resources :comments
     resources :entries do
+      resources :comments
       member do
         post :cheer
       end

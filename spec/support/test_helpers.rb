@@ -8,8 +8,12 @@ def sign_in(user)
 end
 
 def create_friend
-  @user2 = FactoryGirl.build(:user, username: 'Amy', email: 'amy@mail.com',
-                              password: 'password')
+  @user2 = FactoryGirl.build(
+    :user,
+    username: 'Amy',
+    email: 'amy@mail.com',
+    password: 'password'
+    )
   @user2.save
   sign_in(@user2)
   create_goal('Learn to play the piano.')
@@ -32,4 +36,12 @@ def create_entry(content=nil)
 
   fill_in "Content", with: content
   click_button "Create Entry"
+end
+
+def create_comment(content=nil)
+  visit '/goals'
+  click_link 'Learn to play the piano.'
+  click_link 'View Entry'
+  fill_in 'Comment', with: content
+  click_button 'Create Comment'
 end

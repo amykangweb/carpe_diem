@@ -1,4 +1,4 @@
-<%= form_for([@goal, @comment]) do |f| %>
+<%= form_for([@goal, @entry, @comment]) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
