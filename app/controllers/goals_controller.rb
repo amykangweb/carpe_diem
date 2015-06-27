@@ -2,6 +2,7 @@ class GoalsController < ApplicationController
   before_action :set_goal, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update,
     :destroy]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   # GET /goals
   # GET /goals.json
@@ -69,6 +70,12 @@ class GoalsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_goal
       @goal = Goal.find(params[:id])
+    end
+
+    def check_user
+      unless @goal.user == current_user || current_user.admin?
+        redirect_to root_url, alert: 'You are not authorized.'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

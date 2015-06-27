@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update,
+    :destroy]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   # GET /comments
   # GET /comments.json
@@ -69,6 +71,12 @@ class CommentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
       @comment = Comment.find(params[:id])
+    end
+
+    def check_user
+      unless @comment.user == current_user || current_user.admin?
+        redirect_to root_url, alert: 'You are not authorized.'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
