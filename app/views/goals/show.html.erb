@@ -4,6 +4,14 @@
   <strong><%= link_to @user.username, @user %><%= " wants to #{@goal.description}" %></strong>
 </p>
 
+<% if authorized_user?(@goal) %>
+  <p class="control">
+    <%= link_to 'Edit', edit_goal_path(@goal) %>&nbsp;
+    <%= link_to 'Destroy', @goal, method: :delete,
+    data: { confirm: 'Are you sure you want to delete this goal?' } %>
+  </p>
+<% end %>
+
 <p>
   <% if user_signed_in? && current_user != @user %>
     <% if current_user.following?(@user) %>

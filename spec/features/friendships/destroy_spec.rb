@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'support/test_helpers'
 
 describe 'Friendships' do
   before do

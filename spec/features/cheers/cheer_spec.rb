@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'support/test_helpers'
 
 describe 'Cheering entries' do
   before do

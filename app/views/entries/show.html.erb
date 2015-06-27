@@ -5,9 +5,15 @@
   <%= @entry.content %>
 </p>
 
-<p>
+<p class="control">
   <%= link_to "#{@entry.cheering_users.count} cheers",
-  cheer_goal_entry_path(@goal, @entry), method: :post %>
+  cheer_goal_entry_path(@goal, @entry), method: :post %>&nbsp;
+
+  <% if authorized_user?(@entry) %>
+    <%= link_to 'Edit', edit_goal_entry_path(@goal, @entry) %>&nbsp;
+    <%= link_to 'Destroy', [@goal, @entry], method: :delete,
+    data: { confirm: 'Are you sure you want to delete this entry?' } %>
+  <% end %>
 </p>
 
 <ul>
@@ -20,6 +26,7 @@
 
 <%= render partial: 'comments/form', goal: @goal %>
 
+<div class="comments">
 <% @entry.comments.each do |comment| %>
     <p><strong><%= link_to comment.user.username, comment.user %>:
     </strong> <%= comment.body %><br>
@@ -30,9 +37,10 @@
     <% end %>
 
     <% if authorized_user?(@entry) %>
-      <%= link_to 'Destroy', [@entry, comment], method: :delete,
+      <%= link_to 'Destroy', [@goal, @entry, comment], method: :delete,
       data: { confirm: 'Are you sure you want to delete this comment?' } %>
     <% end %>
 
     </p>
 <% end %>
+</div>

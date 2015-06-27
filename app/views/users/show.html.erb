@@ -24,9 +24,19 @@
   <p><%= link_to 'Activity Feed', user_feed_path(@user) %></p>
 <% end %>
 
+<h2><%= "#{@user.username}'s Goals" %></h2>
+
 <ul>
 <% @user.goals.each do |goal| %>
-  <li><%= link_to goal.description, goal %></li>
+  <li class="control">
+    <%= link_to goal.description, goal %>
+
+    <% if authorized_user?(goal) %>
+      <%= link_to 'Edit', edit_goal_path(goal) %>&nbsp;
+      <%= link_to 'Destroy', goal, method: :delete,
+      data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+  </li>
 <% end %>
 </ul>
 

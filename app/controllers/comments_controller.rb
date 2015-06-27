@@ -22,6 +22,8 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+    @goal = Goal.find(params[:goal_id])
+    @entry = Entry.find(params[:entry_id])
   end
 
   # POST /comments
@@ -46,15 +48,15 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
-    respond_to do |format|
+    @goal = Goal.find(params[:goal_id])
+    @entry = Entry.find(params[:entry_id])
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @comment }
+        redirect_to goal_entry_path(@goal, @entry),
+        notice: 'Comment was successfully updated.'
       else
-        format.html { render :new }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        render :edit,
+        alert: 'Comment was not updated.'
       end
-    end
   end
 
   # DELETE /comments/1
@@ -62,7 +64,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

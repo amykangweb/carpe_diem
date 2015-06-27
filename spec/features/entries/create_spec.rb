@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'support/test_helpers'
 
 describe "Creating entry items" do
   before do
