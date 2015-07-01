@@ -34,14 +34,14 @@ describe 'Edit Goal' do
   context 'link is present and working for admin' do
     it 'on Profile page' do
       click_link 'Sign Out'
-      create_admin
+      other_user("admin")
       click_link 'Wilbur'
       edit_goal
     end
 
     it 'on Goal page' do
       click_link 'Sign Out'
-      create_admin
+      other_user("admin")
       click_link 'Learn to paint'
       edit_goal
     end

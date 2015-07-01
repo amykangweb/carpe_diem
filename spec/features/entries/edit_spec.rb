@@ -28,7 +28,7 @@ describe 'Edit Entry' do
 
     it 'for admin' do
       click_link 'Sign Out'
-      create_admin
+      other_user("admin")
       click_link 'Learn to paint'
       edit_entry(".entries")
     end
@@ -42,7 +42,7 @@ describe 'Edit Entry' do
 
     it 'for admin' do
       click_link 'Sign Out'
-      create_admin
+      other_user("admin")
       click_link 'Learn to paint'
       click_link 'View Entry'
       edit_entry(".control")

@@ -1,9 +1,10 @@
-def create_goal(description=nil)
+def create_goal(description=nil, private=false)
   visit '/goals'
   click_link "New Goal"
   expect(page).to have_content("New Goal")
 
   fill_in "Description", with: description
+  find(:css, "#private").set(private)
   click_button "Create Goal"
 end
 

@@ -7,13 +7,17 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
-    @goals = Goal.all
+    @goals = Goal.where(private: false)
   end
 
   # GET /goals/1
   # GET /goals/1.json
   def show
-    @user = @goal.user
+    if @goal.private? && current_user != @goal.user
+      redirect_to root_url, alert: "You are not authorized."
+    else
+      @user = @goal.user
+    end
   end
 
   # GET /goals/new
@@ -80,6 +84,6 @@ class GoalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
-      params.require(:goal).permit(:description, :name, :tag_list)
+      params.require(:goal).permit(:description, :private, :name, :tag_list)
     end
 end

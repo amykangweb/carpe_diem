@@ -11,9 +11,9 @@ describe 'Edit Comment' do
   end
 
   # other users and admins navigate to @user entry page
-  def check_others(method)
+  def check_others(user)
     click_link 'Sign Out'
-    send(method)
+    other_user(user)
     click_link 'Learn to paint'
     click_link 'View Entry'
   end
@@ -36,13 +36,13 @@ describe 'Edit Comment' do
     end
 
     it 'for admin' do
-      check_others("create_admin")
+      check_others("admin")
       edit_comment
     end
   end
 
   it 'link is not present for other users' do
-    check_others("other_user")
+    check_others("friend")
 
     within('.comments') do
       expect(page).not_to have_link('Edit')

@@ -9,9 +9,9 @@ describe 'Destroy Goal' do
   end
 
   # other users and admins navigate to @user profile and goal pages
-  def check_others(method)
+  def check_others(user)
     click_link 'Sign Out'
-    send(method)
+    other_user(user)
     click_link 'Wilbur'
   end
 
@@ -36,12 +36,12 @@ describe 'Destroy Goal' do
 
   context 'link is present and working for admin' do
     it 'on Profile page' do
-      check_others("create_admin")
+      check_others("admin")
       destroy_goal
     end
 
     it 'on Goal page' do
-      check_others("create_admin")
+      check_others("admin")
       click_link 'Learn to paint'
       destroy_goal
     end
@@ -49,12 +49,12 @@ describe 'Destroy Goal' do
 
   context 'link is not present for other users' do
     it 'on Profile page' do
-      check_others("other_user")
+      check_others("friend")
       expect(page).not_to have_content('Destroy')
     end
 
     it 'on Goal page' do
-      check_others("other_user")
+      check_others("friend")
       click_link 'Learn to paint'
       expect(page).not_to have_content('Destroy')
     end
