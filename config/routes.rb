@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :api do
+    resources :goals
+  end
+
   resources :tags do
     get :show
   end
