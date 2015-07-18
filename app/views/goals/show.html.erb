@@ -51,6 +51,10 @@
 </ul>
 
 <p>
+  <%= social_share_button_tag("Carpe Diem: #{@goal.description}", url: @goal) %>
+</p>
+
+<p>
  <strong>Tags:</strong>
  <% @goal.tags.each do |tag| %>
   <%= link_to tag.name, tag_path(tag) %>,
