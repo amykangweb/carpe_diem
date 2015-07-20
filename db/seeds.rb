@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+(1..50).each do |i|
+  Goal.create!(user_id: 1, description: %{Add Pagination})
+end

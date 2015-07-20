@@ -22,10 +22,12 @@ class User < ActiveRecord::Base
   def activity
     all = []
     self.friendships.each do |user|
-      user.friend.goals.each do |items|
-        all << items
-        items.entries.each do |entry|
-          all << entry
+      user.friend.goals.each do |item|
+        unless item.private == true
+          all << item
+          item.entries.each do |entry|
+            all << entry
+          end
         end
       end
     end

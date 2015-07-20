@@ -1,9 +1,10 @@
 class EntriesController < ApplicationController
-  before_action :set_entry, only: [:cheer, :show, :edit, :update, :destroy]
+  before_action :set_entry, only: [:show, :cheer, :edit, :update, :destroy]
   before_action :set_goal
   before_action :authenticate_user!, only: [:cheer, :new, :create, :edit, :update,
     :destroy]
   before_action :check_user, only: [:edit, :update, :destroy]
+  before_action :entry_goal_user?, only: [:new, :create]
 
   def cheer
     @cheered = @entry.cheers.create(user_id: current_user.id)
@@ -85,6 +86,12 @@ class EntriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_entry
       @entry = Entry.find(params[:id])
+    end
+
+    def entry_goal_user?
+      unless @goal.user == current_user
+        redirect_to root_url, alert: 'You are not authorized.'
+      end
     end
 
     def check_user

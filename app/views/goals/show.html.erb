@@ -24,7 +24,9 @@
   <% end %>
 </p>
 
-<p><%= link_to "New Entry", new_goal_entry_path(@goal) %></p>
+<% unless current_user != @user %>
+  <p><%= link_to "New Entry", new_goal_entry_path(@goal) %></p>
+<% end %>
 
 <ul class="entries">
   <% if @goal.entries %>
@@ -49,6 +51,10 @@
     <strong><li>No Entries</li></strong>
   <% end %>
 </ul>
+
+<p>
+  <%= will_paginate @entries %>
+</p>
 
 <p>
   <%= social_share_button_tag("Carpe Diem: #{@goal.description}", url: @goal) %>

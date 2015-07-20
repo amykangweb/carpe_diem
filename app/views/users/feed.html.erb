@@ -1,7 +1,7 @@
 <h1>Activity</h1>
 
 <ul>
-  <% current_user.activity.each do |obj| %>
+  <% @user.activity.each do |obj| %>
     <% if obj.has_attribute?(:description) %>
       <li>
       <strong><%= link_to obj.user.username, obj.user %></strong> posted

@@ -20,6 +20,10 @@
 </table>
 
 <p>
+  <%= will_paginate @posts %>
+</p>
+
+<p>
   <% Tag.top_tags.shuffle.each do |tag| %>
     <%= link_to tag.name, tag_path(tag),
     class: (Tag.size?(tag)) %>

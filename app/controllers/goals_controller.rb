@@ -7,7 +7,8 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
-    @goals = Goal.where(private: false)
+    @goals = Goal.where(private: false).paginate(page: params[:page],
+    per_page: 10)
   end
 
   # GET /goals/1
@@ -17,6 +18,8 @@ class GoalsController < ApplicationController
       redirect_to root_url, alert: "You are not authorized."
     else
       @user = @goal.user
+      @entries = @goal.entries.all.paginate(page: params[:page],
+      per_page: 10)
     end
   end
 
