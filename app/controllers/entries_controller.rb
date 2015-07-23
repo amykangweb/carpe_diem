@@ -25,6 +25,7 @@ class EntriesController < ApplicationController
   # GET /entries/1.json
   def show
     @comment = Comment.new
+    @cheerers = @entry.cheering_users.limit(10)
   end
 
   # GET /entries/new

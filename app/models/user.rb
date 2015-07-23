@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   has_many :cheered_entries, through: :cheers, source: :entry
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
-  has_many :followed_by, class_name: 'Friendship',
+  has_many :reverse_relationship, class_name: 'Friendship',
   foreign_key: 'friend_id'
-  has_many :followers, through: :followed_by, source: :user
+  has_many :followers, through: :reverse_relationship, source: :user
   validates :username, presence: true
   validates_uniqueness_of :username
   # Include default devise modules. Others available are:
