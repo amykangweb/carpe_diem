@@ -1,0 +1,14 @@
+<% if user_signed_in? && @goal.user == current_user %>
+  <p>
+  <% if !@goal.completed? %>
+    <%= link_to 'Mark as Completed.', completed_goal_path(@goal), method: :patch %>
+  <% else %>
+    <%= link_to 'Start Again.', incomplete_goal_path(@goal), method: :patch %>
+  <% end %>
+  </p>
+<% end %>
+
+  <p><% if @goal.completed? %>
+      <strong>This goal has been completed!</strong>
+    <% end %>
+  </p>

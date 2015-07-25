@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  def completed_goals
+    self.goals.where(completed: true).count
+  end
+
   def following?(user)
     self.friendships.find_by(friend_id: user.id).present?
   end

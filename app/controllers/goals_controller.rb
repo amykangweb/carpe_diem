@@ -1,8 +1,18 @@
 class GoalsController < ApplicationController
-  before_action :set_goal, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update,
+  before_action :set_goal, only: [:incomplete, :completed, :show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:incomplete, :completed, :new, :create, :edit, :update,
     :destroy]
-  before_action :check_user, only: [:edit, :update, :destroy]
+  before_action :check_user, only: [:incomplete, :completed, :edit, :update, :destroy]
+
+  def completed
+    @goal.update(completed: true)
+    redirect_to :back, notice: "Goal has been marked as completed!"
+  end
+
+  def incomplete
+    @goal.update(completed: false)
+    redirect_to :back, notice: "Goal has been marked as incomplete."
+  end
 
   # GET /goals
   # GET /goals.json
@@ -87,6 +97,6 @@ class GoalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
-      params.require(:goal).permit(:description, :private, :name, :tag_list)
+      params.require(:goal).permit(:description, :private, :name, :tag_list, :completed)
     end
 end

@@ -5,13 +5,12 @@ class Goal < ActiveRecord::Base
   has_many :tags, through: :taggings
   validates :description, presence: true
 
-  def private?
-    self.private == true
+  def completed?
+    self.completed == true
   end
 
-# All goals tagged with name arg
-  def self.tagged_with(name)
-    Tag.find_by_name!(name).goals
+  def private?
+    self.private == true
   end
 
   def tag_list

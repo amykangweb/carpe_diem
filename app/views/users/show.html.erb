@@ -1,5 +1,7 @@
 <h1><%= @user.username %></h1>
 
+<p><%= link_to @user.completed_goals, user_accomplished_path(@user) %> <strong>Goals Completed</strong></p>
+
 <ul>
 
   <li><%= link_to "Followers (#{@user.followers.count})",
@@ -31,7 +33,8 @@
   <% unless goal.private? && current_user != @user && !current_user.try(:admin?) %>
     <li class="control">
       <%= link_to goal.description, goal %>&nbsp;
-      <span><% if goal.private? %><em>private</em><% end %></span>
+      <span><% if goal.private? %><em>private</em><% end %></span> |
+      <span><% if goal.completed? %><em>completed</em><% end %></span>
 
         <% if authorized_user?(goal) %>
           <%= link_to 'Edit', edit_goal_path(goal) %>&nbsp;

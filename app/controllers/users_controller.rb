@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user_id, only: [:following, :followers, :feed]
+  before_action :set_user_id, only: [:accomplished, :following, :followers, :feed]
+
+  def accomplished
+    @goals = @user.goals.where(completed: true)
+  end
 
   def following
   end

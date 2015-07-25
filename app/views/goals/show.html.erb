@@ -4,6 +4,8 @@
   <strong><%= link_to @user.username, @user %><%= " wants to #{@goal.description}" %></strong>
 </p>
 
+<%= render "completed" %>
+
 <p><% if @goal.private? %><em>private</em><% end %></p>
 
 <% if authorized_user?(@goal) %>

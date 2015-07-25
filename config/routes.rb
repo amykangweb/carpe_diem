@@ -16,9 +16,14 @@ Rails.application.routes.draw do
     get :show
     get :followers
     get :following
+    get :accomplished
   end
 
   resources :goals do
+    member do
+      patch :completed
+      patch :incomplete
+    end
     resources :entries do
       resources :comments
       member do

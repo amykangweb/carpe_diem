@@ -1,0 +1,7 @@
+<h1><%= @user.username %>'s Completed Goals</h1>
+
+<% @goals.each do |goal| %>
+  <p>
+  <strong><%= link_to @user.username, @user %></strong> wants to <strong><%= link_to goal.description, goal %></strong>
+  </p>
+<% end %>
