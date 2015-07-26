@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :goals do
       resources :entries
     end
+    resources :users
   end
 
   resources :tags do

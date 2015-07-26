@@ -1,4 +1,4 @@
-<h1><%= @user.username %></h1>
+<h1><%= @user.username.titleize %></h1>
 
 <p><%= link_to @user.completed_goals, user_accomplished_path(@user) %> <strong>Goals Completed</strong></p>
 
@@ -26,7 +26,7 @@
   <p><%= link_to 'Activity Feed', user_feed_path(@user) %></p>
 <% end %>
 
-<h2><%= "#{@user.username}'s Goals" %></h2>
+<h2><%= "#{@user.username.titleize}'s Goals" %></h2>
 
 <ul>
 <% @goals.each do |goal| %>
