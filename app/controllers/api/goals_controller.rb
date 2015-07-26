@@ -5,6 +5,12 @@ class Api::GoalsController < ApplicationController
 
   def show
     goal = Goal.find(params[:id])
-    render json: goal
+    if goal.private?
+      render status: 422, json: {
+        message: "Could not retrieve goal.",
+      }.to_json
+    else
+      render json: goal.as_json(include:[:entries])
+    end
   end
 end

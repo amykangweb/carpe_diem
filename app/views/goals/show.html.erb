@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong><%= link_to @user.username, @user %><%= " wants to #{@goal.description}" %></strong>
+  <strong><%= link_to @user.username, @user %><%= " wants to #{@goal.description}" %></strong><br>
+  <span><%= @goal.cheers_count %> <strong>Cheers</strong></span>
 </p>
 
 <%= render "completed" %>
