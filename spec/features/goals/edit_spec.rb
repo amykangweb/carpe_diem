@@ -46,4 +46,22 @@ describe 'Edit Goal' do
       edit_goal
     end
   end
+
+  it 'returns success message on marking complete' do
+    click_link 'Mark as Completed.'
+    expect(page).to have_content("Goal has been marked as completed!")
+  end
+
+  it 'returns notice on marking incomplete' do
+    click_link 'Mark as Completed.'
+    click_link 'Start Again.'
+    expect(page).to have_content("Goal has been marked as incomplete.")
+  end
+
+  it 'does not show mark as complete for other user' do
+    click_link 'Sign Out'
+    other_user("friend")
+    click_link 'Learn to paint'
+    expect(page).not_to have_content('Mark as Completed')
+  end
 end
