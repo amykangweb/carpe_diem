@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   before_action :set_user_id, only: [:accomplished, :following, :followers, :feed]
 
   def accomplished
-    @goals = @user.goals.where(completed: true)
+    if current_user == @user
+      @goals = @user.goals.where(completed: true).paginate(page: params[:page], per_page: 20)
+    else
+      @goals = @user.goals.where(completed: true).where(private: false).paginate(page: params[:page], per_page: 20)
+    end
   end
 
   def following
