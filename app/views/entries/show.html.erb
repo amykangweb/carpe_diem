@@ -5,45 +5,15 @@
   <%= @entry.content %>
 </p>
 
-<p class="control">
-  <%= link_to "#{@entry.cheering_users.count} cheers",
-  cheer_goal_entry_path(@goal, @entry), method: :post %>&nbsp;
+<!-- Entry cheer count and controls -->
+<%= render 'control' %>
 
-  <% if authorized_user?(@entry) %>
-    <%= link_to 'Edit', edit_goal_entry_path(@goal, @entry) %>&nbsp;
-    <%= link_to 'Destroy', [@goal, @entry], method: :delete,
-    data: { confirm: 'Are you sure you want to delete this entry?' } %>
-  <% end %>
-</p>
-
-<ul>
-  <% @cheerers.each do |user| %>
-    <li><%= link_to user.username, user %> cheered this.</li>
-  <% end %>
-  <% unless @entry.cheering_users.count <= 10 %>
-    <li>...and <%= "#{@entry.cheering_users.count - 10}" %> other users cheered this.</li>
-  <% end %>
-</ul>
+<!-- Entry cheerers info -->
+<%= render 'cheers' %>
 
 <%= link_to 'Goal', goal_path(@goal) %>
 
 <%= render partial: 'comments/form', goal: @goal %>
 
-<div class="comments">
-<% @entry.comments.each do |comment| %>
-    <p><strong><%= link_to comment.user.username, comment.user %>:
-    </strong> <%= comment.body %><br>
-
-    <% if authorized_user?(comment) %>
-      <%= link_to 'Edit',
-      edit_goal_entry_comment_path(@goal, @entry, comment) %>&nbsp;
-    <% end %>
-
-    <% if authorized_user?(@entry) %>
-      <%= link_to 'Destroy', [@goal, @entry, comment], method: :delete,
-      data: { confirm: 'Are you sure you want to delete this comment?' } %>
-    <% end %>
-
-    </p>
-<% end %>
-</div>
+<!-- Entry Comments -->
+<%= render 'comments' %>

@@ -26,6 +26,7 @@ class EntriesController < ApplicationController
   def show
     @comment = Comment.new
     @cheerers = @entry.cheering_users.limit(10)
+    @comments = @entry.comments.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /entries/new

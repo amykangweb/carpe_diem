@@ -1,0 +1,19 @@
+<ul>
+<% @goals.each do |goal| %>
+  <% unless goal.private? && current_user != @user && !current_user.try(:admin?) %>
+    <li class="control">
+      <%= link_to goal.description, goal %>&nbsp;
+      <span><% if goal.private? %><em>private</em><% end %></span> |
+      <span><% if goal.completed? %><em>completed</em><% end %></span>
+
+        <% if authorized_user?(goal) %>
+          <%= link_to 'Edit', edit_goal_path(goal) %>&nbsp;
+          <%= link_to 'Destroy', goal, method: :delete,
+          data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+    </li>
+  <% end %>
+<% end %>
+</ul>
+
+<%= will_paginate @goals %>

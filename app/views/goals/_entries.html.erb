@@ -1,0 +1,27 @@
+<ul class="entries">
+  <% if @goal.entries %>
+    <% @goal.entries.each do |entry| %>
+      <li><%= entry.content %></li>
+
+      <span>
+        <%= link_to "View Entry", goal_entry_path(@goal, entry) %>&nbsp;
+        <%= link_to "#{entry.cheering_users.count} cheers",
+        cheer_goal_entry_path(@goal, entry), method: :post %>&nbsp;
+
+      <% if authorized_user?(entry) %>
+        <%= link_to 'Edit', edit_goal_entry_path(@goal, entry) %>&nbsp;
+        <%= link_to 'Destroy', [@goal, entry], method: :delete,
+        data: { confirm: 'Are you sure you want to delete this entry?' } %>
+      <% end %>
+      </span>
+
+          <p>
+    <% end %>
+  <% else %>
+    <strong><li>No Entries</li></strong>
+  <% end %>
+</ul>
+
+<p>
+  <%= will_paginate @entries %>
+</p>
