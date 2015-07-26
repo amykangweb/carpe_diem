@@ -27,7 +27,7 @@
   <% end %>
 </p>
 
-<% unless current_user != @user %>
+<% unless current_user != @user || @goal.completed? %>
   <p><%= link_to "New Entry", new_goal_entry_path(@goal) %></p>
 <% end %>
 
