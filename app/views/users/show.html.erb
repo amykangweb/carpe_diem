@@ -29,7 +29,7 @@
 <h2><%= "#{@user.username}'s Goals" %></h2>
 
 <ul>
-<% @user.goals.each do |goal| %>
+<% @goals.each do |goal| %>
   <% unless goal.private? && current_user != @user && !current_user.try(:admin?) %>
     <li class="control">
       <%= link_to goal.description, goal %>&nbsp;
@@ -45,5 +45,7 @@
   <% end %>
 <% end %>
 </ul>
+
+<%= will_paginate @goals %>
 
 <p><%= link_to 'Back', root_url %></p>
