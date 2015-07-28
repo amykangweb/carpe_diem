@@ -8,10 +8,11 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :port           => 587,
     :address        => 'smtp.gmail.com',
+    :domain         => 'gmail.com',
     :enable_starttls_auto => true,
     :user_name      => ENV['email'],
     :password       => ENV['password'],
-    :authentication => :plain
+    :authentication => :login
   }
   config.action_mailer.delivery_method = :smtp
   # Code is not reloaded between requests.
