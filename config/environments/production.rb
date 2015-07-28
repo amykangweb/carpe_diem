@@ -3,11 +3,14 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => "powerful-badlands-4671.herokuapp.com" }
 
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
     :tls => true,
     :address => 'smtp.gmail.com',
     :port => 587,
-    :domain => 'gmail.com',
+    :domain => 'heroku.com',
     :authentication => :login,
     :user_name => ENV["email"],
     :password => ENV["password"]
