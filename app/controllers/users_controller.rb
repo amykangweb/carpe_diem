@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_username(params[:id])
     @goals = @user.goals.paginate(page: params[:page], per_page: 20)
   end
 
@@ -28,6 +28,6 @@ class UsersController < ApplicationController
 
   # set :user_id for friendships
   def set_user_id
-    @user = User.find(params[:user_id])
+    @user = User.find_by_username(params[:user_id])
   end
 end

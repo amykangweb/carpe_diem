@@ -1,4 +1,5 @@
 class Entry < ActiveRecord::Base
+  default_scope -> { order('created_at DESC') }
   belongs_to :user
   belongs_to :goal
   has_many :cheers, dependent: :destroy

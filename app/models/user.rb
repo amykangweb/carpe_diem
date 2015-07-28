@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  def to_param
+    username
+  end
+
   def completed_goals
     self.goals.where(completed: true).count
   end
