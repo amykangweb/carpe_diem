@@ -7,13 +7,12 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
-    :tls => true,
-    :address => 'smtp.gmail.com',
-    :port => 587,
-    :domain => 'powerful-badlands-4671.herokuapp.com',
-    :authentication => :login,
-    :user_name => ENV["email"],
-    :password => ENV["password"]
+    :port           => ENV['MAILGUN_SMTP_PORT'],
+    :address        => ENV['MAILGUN_SMTP_SERVER'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain         => 'powerful-badlands-4671.herokuapp.com',
+    :authentication => :plain,
   }
   # Code is not reloaded between requests.
   config.cache_classes = true
