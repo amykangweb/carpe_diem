@@ -10,7 +10,7 @@ Rails.application.configure do
     :tls => true,
     :address => 'smtp.gmail.com',
     :port => 587,
-    :domain => 'heroku.com',
+    :domain => 'powerful-badlands-4671.herokuapp.com',
     :authentication => :login,
     :user_name => ENV["email"],
     :password => ENV["password"]
