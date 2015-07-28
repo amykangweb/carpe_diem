@@ -5,15 +5,15 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
-  ActionMailer::Base.smtp_settings = {
+  config.action_mailer.smtp_settings = {
     :port           => 587,
     :address        => 'smtp.gmail.com',
+    :enable_starttls_auto => true,
     :user_name      => ENV['email'],
     :password       => ENV['password'],
-    :domain         => 'powerful-badlands-4671.heroku.com',
     :authentication => :plain
   }
-  ActionMailer::Base.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp
   # Code is not reloaded between requests.
   config.cache_classes = true
 
