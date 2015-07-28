@@ -37,6 +37,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'pages/api'
+
   root 'goals#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
