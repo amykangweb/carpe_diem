@@ -3,6 +3,9 @@ Rails.application.configure do
   # Default development url for devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  # configuration for letter opener gem
+  config.action_mailer.delivery_method = :letter_opener
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

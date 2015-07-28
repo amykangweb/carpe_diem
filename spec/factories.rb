@@ -3,12 +3,14 @@ FactoryGirl.define do
     username "Wilbur"
     email "wilbur@mail.com"
     password "password"
+    confirmed_at Time.now
   end
 
   factory :friend, class: User do
     username "Amy"
     email "amy@mail.com"
     password "password"
+    confirmed_at Time.now
   end
 
   factory :admin, class: User do
@@ -16,5 +18,6 @@ FactoryGirl.define do
     email "admin@mail.com"
     password "password"
     admin true
+    confirmed_at Time.now
   end
 end

@@ -27,6 +27,8 @@ gem 'social-share-button', '~> 0.1.6'
 
 gem 'will_paginate', '~> 3.0.6'
 
+gem 'figaro'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -38,6 +40,10 @@ gem 'will_paginate', '~> 3.0.6'
 group :production do
   gem 'rails_12factor'
   gem 'pg'
+end
+
+group :development do
+  gem 'letter_opener'
 end
 
 group :development, :test do
