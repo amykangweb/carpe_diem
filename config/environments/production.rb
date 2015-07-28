@@ -7,12 +7,12 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
     :port           => 587,
-    :address        => 'smtp.gmail.com',
-    :domain         => 'gmail.com',
+    :address        => 'smtp.sendgrid.net',
+    :domain         => 'heroku.com',
     :enable_starttls_auto => true,
-    :user_name      => ENV['email'],
-    :password       => ENV['password'],
-    :authentication => :login
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :authentication => :plain
   }
   config.action_mailer.delivery_method = :smtp
   # Code is not reloaded between requests.
