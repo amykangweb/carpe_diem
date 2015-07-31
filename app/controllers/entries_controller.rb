@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  before_action :set_entry, only: [:show, :cheer, :edit, :update, :destroy]
+  before_action :set_entry, only: [:show, :uncheer, :cheer, :edit, :update, :destroy]
   before_action :set_goal
   before_action :authenticate_user!, only: [:cheer, :new, :create, :edit, :update,
     :destroy]
@@ -9,10 +9,18 @@ class EntriesController < ApplicationController
   def cheer
     @cheered = @entry.cheers.create(user_id: current_user.id)
     if @cheered.save
-      redirect_to :back, notice: "Thank you for cheering!"
+      flash[:notice] = "Thank you for cheering!"
+      redirect_to :back
     else
-      redirect_to :back, alert: "You have already cheered this."
+      flash[:alert] = "You have already cheered this."
+      redirect_to :back
     end
+  end
+
+  def uncheer
+    Cheer.destroy_all(entry_id: @entry.id, user_id: current_user.id)
+    flash[:alert] = "You have uncheered this entry."
+    redirect_to :back
   end
 
   # GET /entries

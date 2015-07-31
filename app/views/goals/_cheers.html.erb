@@ -1,0 +1,6 @@
+<% if entry.cheered?(current_user) %>
+  <%= link_to "Thanks!", uncheer_goal_entry_path(@goal, entry), method: :patch %>
+<% else %>
+  <%= link_to "Cheer!",
+  cheer_goal_entry_path(@goal, entry), method: :post %>&nbsp;
+<% end %>

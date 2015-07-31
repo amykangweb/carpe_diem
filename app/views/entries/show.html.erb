@@ -1,18 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Content:</strong>
   <%= @entry.content %>
 </p>
 
-<!-- Entry cheer count and controls -->
+<!-- Entry Cheer Count -->
+<p>
+  <%= "#{@entry.cheering_users.count} cheers" %>
+</p>
+
+<!-- Cheer Entry & Edit/Delete Controls -->
 <%= render 'control' %>
 
-<!-- Entry cheerers info -->
-<%= render 'cheers' %>
+<!-- Entry Cheerers -->
+<%= render 'cheerers' %>
 
 <%= link_to 'Goal', goal_path(@goal) %>
 
+<!-- Comments Form -->
 <%= render partial: 'comments/form', goal: @goal %>
 
 <!-- Entry Comments -->

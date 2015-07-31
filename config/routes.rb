@@ -33,6 +33,7 @@ Rails.application.routes.draw do
       resources :comments
       member do
         post :cheer
+        patch :uncheer
       end
     end
   end

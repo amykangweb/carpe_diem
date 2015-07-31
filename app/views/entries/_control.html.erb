@@ -1,10 +1,19 @@
+<!-- Cheer & Edit/Delete Entry Controls -->
 <p class="control">
-  <%= link_to "#{@entry.cheering_users.count} cheers",
-  cheer_goal_entry_path(@goal, @entry), method: :post %>&nbsp;
 
+<!-- Cheer/Uncheer Entry -->
+  <% if @entry.cheered?(current_user) %>
+    <%= link_to "Thanks!", uncheer_goal_entry_path(@goal, @entry), method: :patch %>
+  <% else %>
+    <%= link_to "Cheer!",
+    cheer_goal_entry_path(@goal, @entry), method: :post %>&nbsp;
+  <% end %>
+
+<!-- Edit/Destroy Entry -->
   <% if authorized_user?(@entry) %>
     <%= link_to 'Edit', edit_goal_entry_path(@goal, @entry) %>&nbsp;
     <%= link_to 'Destroy', [@goal, @entry], method: :delete,
     data: { confirm: 'Are you sure you want to delete this entry?' } %>
   <% end %>
+
 </p>

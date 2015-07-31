@@ -13,15 +13,22 @@ describe 'Cheering entries' do
   it 'redirects to sign in page if not signed in' do
     click_link 'Sign Out'
     click_link 'Find a job'
-    click_link '0 cheers'
+    click_link 'Cheer!'
     expect(page).to have_content('You need to sign in or sign up before
       continuing.')
   end
 
   it 'updates entry with cheer count and success message' do
-    click_link '0 cheers'
+    click_link 'Cheer!'
     expect(page).to have_content('1 cheers')
     expect(page).to have_content('Thank you for cheering!')
+  end
+
+  it 'returns alert when entry uncheered from goal page' do
+    click_link 'Cheer!'
+    click_link 'Thanks!'
+    expect(page).to have_content('0 cheers')
+    expect(page).to have_content('You have uncheered this entry.')
   end
 
   context 'from view entry page' do
@@ -29,7 +36,7 @@ describe 'Cheering entries' do
       visit '/goals'
       click_link 'Learn to play the piano.'
       click_link 'View Entry'
-      click_link '0 cheers'
+      click_link 'Cheer!'
       expect(page).to have_content('1 cheers')
       expect(page).to have_content('Wilbur cheered this.')
     end

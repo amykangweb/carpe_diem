@@ -5,8 +5,10 @@
 
       <span>
         <%= link_to "View Entry", goal_entry_path(@goal, entry) %>&nbsp;
-        <%= link_to "#{entry.cheering_users.count} cheers",
-        cheer_goal_entry_path(@goal, entry), method: :post %>&nbsp;
+        <%= "#{entry.cheering_users.count} cheers" %>&nbsp;
+
+        <!-- Cheer/Uncheer Entry Controls -->
+        <%= render 'cheers', entry: entry %>&nbsp;
 
       <% if authorized_user?(entry) %>
         <%= link_to 'Edit', edit_goal_entry_path(@goal, entry) %>&nbsp;
