@@ -15,7 +15,7 @@
       </tr>
       <tr>
         <% goal.tags.each do |tag| %>
-          <td><%= link_to tag.name, tag_path(tag) %>, </td>
+          <td><%= link_to tag.name, tag_path(tag) %>&nbsp; </td>
         <% end %>
       </tr>
     <% end %>

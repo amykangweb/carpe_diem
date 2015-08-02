@@ -5,7 +5,11 @@
     <li>
       <%= image_tag goal.user.gravatar_url, class: 'avatar' %><br>
 
-      <strong><%= link_to goal.user.username.titleize, goal.user %></strong> wants to <strong><%= link_to goal.description, goal %></strong><br>
+      <p><strong><%= link_to goal.user.username.titleize, goal.user %></strong> wants to <strong><%= link_to goal.description, goal %></strong></p>
+
+      <% goal.tags.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag) %>&nbsp;
+      <% end %>
     </li>
   <% end %>
 </ul>
