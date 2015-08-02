@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include Gravtastic
+  gravtastic
   has_many :goals, dependent: :destroy
   has_many :entries, dependent: :destroy
   has_many :cheers, dependent: :destroy

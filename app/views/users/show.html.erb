@@ -1,3 +1,5 @@
+<p><%= image_tag @user.gravatar_url, class: 'avatar' %></p>
+
 <h1><%= @user.username.titleize %></h1>
 
 <p><%= link_to @user.completed_goals, user_accomplished_path(@user) %> <strong>Goals Completed</strong></p>
