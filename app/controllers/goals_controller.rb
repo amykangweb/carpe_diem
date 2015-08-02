@@ -18,7 +18,7 @@ class GoalsController < ApplicationController
   # GET /goals.json
   def index
     @goals = Goal.where(private: false).paginate(page: params[:page],
-    per_page: 10)
+    per_page: 20)
   end
 
   # GET /goals/1

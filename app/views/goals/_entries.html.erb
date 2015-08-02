@@ -10,6 +10,7 @@
         <!-- Cheer/Uncheer Entry Controls -->
         <%= render 'cheers', entry: entry %>&nbsp;
 
+      <!-- Entry Edit/Destroy Links -->
       <% if authorized_user?(entry) %>
         <%= link_to 'Edit', edit_goal_entry_path(@goal, entry) %>&nbsp;
         <%= link_to 'Destroy', [@goal, entry], method: :delete,
@@ -20,6 +21,7 @@
           <p>
     <% end %>
   <% else %>
+    <!-- If no entries -->
     <strong><li>No Entries</li></strong>
   <% end %>
 </ul>
