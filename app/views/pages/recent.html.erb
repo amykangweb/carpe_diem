@@ -1,0 +1,13 @@
+<h1>Recent Goals</h1>
+
+<ul>
+  <% @goals.each do |goal| %>
+    <li>
+      <%= image_tag goal.user.gravatar_url, class: 'avatar' %><br>
+
+      <strong><%= link_to goal.user.username.titleize, goal.user %></strong> wants to <strong><%= link_to goal.description, goal %></strong><br>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate @goals %>

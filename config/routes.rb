@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   end
 
   get 'pages/api'
+  get 'pages/recent'
 
   root 'goals#index'
 

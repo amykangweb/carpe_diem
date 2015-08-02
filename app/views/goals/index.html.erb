@@ -13,13 +13,16 @@
         <td><%= " wants to " %></td>
         <td><strong><%= link_to goal.description, goal %></strong></td>
       </tr>
+      <tr>
+        <% goal.tags.each do |tag| %>
+          <td><%= link_to tag.name, tag_path(tag) %>, </td>
+        <% end %>
+      </tr>
     <% end %>
   </tbody>
 </table>
 
-<p>
-  <%= will_paginate @posts %>
-</p>
+<p><%= link_to 'View More', pages_recent_path %></p>
 
 <p>
   <% Tag.top_tags.shuffle.each do |tag| %>
@@ -29,5 +32,3 @@
 </p>
 
 <br>
-
-<%= link_to 'New Goal', new_goal_path %>
