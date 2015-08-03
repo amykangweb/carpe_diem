@@ -1,12 +1,41 @@
-<h1><%= link_to 'Carpe Diem', root_url %></h1>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <%= link_to 'Carpe Diem', root_url, class: "navbar-brand" %>
+  </div>
 
-<%= link_to 'Recent Goals', pages_recent_path %>
-<% if user_signed_in? %>
-  <%= link_to 'New Goal', new_goal_path %>
-  <%= link_to 'Profile', current_user %>
-  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-  <%= link_to 'Edit Account', edit_user_registration_path %>
-<% else %>
-  <%= link_to 'Sign In', new_user_session_path %>
-  <%= link_to 'Sign Up', new_user_registration_path %>
-<% end %>
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-left">
+      <li><%= link_to 'Recent Goals', pages_recent_path %></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+      <li><%= link_to 'New Goal', new_goal_path %></li>
+
+      <!-- Drop Down Menu Code -->
+      <li id="fat-menu" class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><%= link_to 'Profile', current_user %></li>
+        <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+      </ul>
+      <!-- End of Drop Down Menu -->
+
+      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+      <li><%= link_to "Sign Up", new_user_registration_path %></li>
+      <li><%= link_to "Sign In", new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
