@@ -1,5 +1,5 @@
 @import "bootstrap";
-@import url(http://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
 
 body {
   padding-top: 50px;
@@ -95,7 +95,7 @@ h4 {
 
 .jumbotron {
   text-align: center;
-  background: url('day-sky.svg');
+  background: image-url('day-sky.svg');
   background-position: center 40%;
   background-size: cover;
   height: 315px !important;
