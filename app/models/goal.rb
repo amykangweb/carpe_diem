@@ -4,7 +4,7 @@ class Goal < ActiveRecord::Base
   has_many :entries, dependent: :destroy
   has_many :taggings
   has_many :tags, through: :taggings
-  validates :description, presence: true
+  validates :description, presence: true, length: { maximum: 40 }
 
   def cheers_count
     count = 0

@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url("https://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
 
 body {
   padding-top: 50px;
@@ -82,13 +83,9 @@ a {
 
 h4 {
   margin-bottom: 10px;
-}
-
-.home-padding {
-  background: #fff;
-  margin-bottom: 20px;
-  padding-top: 15px;
-  padding-bottom: 10px;
+  .glyphicon {
+    opacity: 0.90;
+  }
 }
 
 /* Main marketing message and sign up button */
@@ -125,6 +122,14 @@ a.btn-visited:visited {
   border: none;
 }
 
+.home-padding {
+  height: 220px;
+  background: #fff;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
 .view-more {
   display: block;
   width: 150px;
@@ -158,6 +163,7 @@ div.top-tags {
 }
 
 footer {
+  margin-top: 20px;
   text-align: center;
   padding: 20px;
 }
