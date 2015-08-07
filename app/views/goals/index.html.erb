@@ -1,39 +1,51 @@
 <!-- Jumbotron -->
 <div class="jumbotron">
-  <h1>Carpe Diem</h1>
-    <p class="lead">Seize the day!</p>
-    <p><%= link_to "Sign Up for Free!", new_user_registration_path, class: "btn btn-lg btn-success", role: "button" %></p>
+  <div class="text-container">
+    <h1>Carpe Diem</h1>
+      <p class="lead">Seize the Day!</p>
+      <p>Free blogging platform to share your goals and progress.</p>
+      <p><%= link_to "Sign Up for Free", new_user_registration_path, class: "btn btn-lg btn-success btn-visited", role: "button" %></p>
+  </div>
 </div>
 
-<table>
-  <thead>
-    <tr>
-    </tr>
-  </thead>
+<div class="container">
+  <h4>Recent Goals</h4>
+  <!-- Goals Limit 16 -->
+  <div class="row">
 
-  <tbody>
-    <% @goals.each do |goal| %>
-      <tr>
-        <td><strong><%= link_to goal.user.username.titleize, goal.user %></strong></td>
-        <td><%= " wants to " %></td>
-        <td><strong><%= link_to goal.description, goal %></strong></td>
-      </tr>
-      <tr>
-        <% goal.tags.each do |tag| %>
-          <td><%= link_to tag.name, tag_path(tag) %>&nbsp; </td>
-        <% end %>
-      </tr>
+      <% @goals.each do |goal| %>
+
+      <div class="col-sm-3 text-center">
+        <div class="home-padding">
+          <p>
+            <%= link_to image_tag(goal.user.gravatar_url, class: 'avatar'), goal.user %>
+          </p>
+
+          <p>
+            <strong><%= link_to goal.user.username.titleize, goal.user %></strong>
+            <%= " wants to " %>
+            <strong><%= link_to goal.description, goal %></strong>
+          </p>
+
+          <p><%= link_to "View", goal, class: 'btn btn-default' %></p>
+
+        </div>
+      </div>
+
+      <% end %>
+  </div>
+
+  <p><%= link_to 'View More', pages_recent_path, class: 'btn btn-lg btn-success view-more btn-visited' %></p>
+
+  <h4>Popular Tags</h4>
+
+  <div class="top-tags">
+    <% Tag.top_tags.shuffle.each do |tag| %>
+      <%= link_to tag.name, tag_path(tag),
+      class: (Tag.size?(tag)) %>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<p><%= link_to 'View More', pages_recent_path %></p>
+  <br>
 
-<p>
-  <% Tag.top_tags.shuffle.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag),
-    class: (Tag.size?(tag)) %>
-  <% end %>
-</p>
-
-<br>
+</div>

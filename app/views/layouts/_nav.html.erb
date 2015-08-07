@@ -19,7 +19,7 @@
 
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
-      <li><%= link_to 'New Goal', new_goal_path %></li>
+      <li class='navbar-btn'><%= link_to 'New Goal', new_goal_path, class: 'btn btn-xs btn-success btn-visited new-goal', role: 'button' %></li>
 
       <!-- Drop Down Menu Code -->
       <li id="fat-menu" class="dropdown">

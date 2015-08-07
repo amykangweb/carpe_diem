@@ -1,16 +1,164 @@
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
 
 body {
-  padding-top: 70px;
+  padding-top: 50px;
+  background: #F3F3EC !important;
+  color: #31312C !important;
+}
+
+/* Override default bootstrap link colors */
+
+a {
+  color: #494948 !important;
+  &:visited {
+    color: #3366FF !important;
+  }
+}
+
+.navbar {
+  background: #AA3939;
+  border: none;
+}
+
+.navbar-brand {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.75em;
+}
+
+.navbar a {
+  margin-top: 5px;
+  color: white !important;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+/* New goal button on nav bar */
+
+.navbar-btn {
+  margin-top: 5px;
+  a {
+    font-size: 1em;
+    &:hover {
+      background: #199E7C !important;
+      opacity: 1 !important;
+    }
+  }
+}
+
+/* Dropdown menu active state color */
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  background-color: #AA3939 !important;
+}
+
+/* Dropdown submenu color on hover, focus */
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-submenu:hover > a,
+.dropdown-submenu:focus > a {
+  background-color: #AA3939 !important;
+}
+
+/* Dropdown menu background color */
+
+.dropdown-menu {
+  background: #AA3939;
+}
+
+/* Set flash message bottom margin to 0 */
+
+.alert {
+  margin-bottom: 0;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+h4 {
+  margin-bottom: 10px;
+}
+
+.home-padding {
+  background: #fff;
+  margin-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 10px;
 }
 
 /* Main marketing message and sign up button */
+
 .jumbotron {
   text-align: center;
-  background-color: transparent;
+  background: url('day-sky.svg');
+  background-position: center 40%;
+  background-size: cover;
+  height: 315px !important;
 }
+
+.text-container  {
+  color: #494948;
+  h1 {
+    font-family: 'Pacifico', cursive;
+    color: #494948;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  .lead {
+    font-family: 'Pacifico', cursive;
+  }
+}
+
+/* Keep visited button link white */
+a.btn-visited:visited {
+  color: white;
+}
+
 .jumbotron .btn {
   padding: 14px 24px;
   font-size: 21px;
+  border: none;
+}
+
+.view-more {
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.btn-success{
+  color: #fff !important;
+  background: #00936E;
+  border: none;
+  &:hover {
+    background: #199E7C;
+  }
+  &:active {
+    background: #199E7C;
+  }
+  &:visited {
+    color: #fff !important;
+  }
+}
+
+div.top-tags {
+  background: #fff;
+  height: 100px;
+  text-align: center;
+  padding: 10px;
+  padding-top: 25px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
 }
 

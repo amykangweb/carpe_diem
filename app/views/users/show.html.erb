@@ -7,6 +7,7 @@
 <!-- Show Followers and Following -->
 <%= render 'friends' %>
 
+<!-- Follow/Unfollow Buttons -->
 <p>
   <% if user_signed_in? && current_user != @user %>
     <% if current_user.following?(@user) %>
@@ -17,6 +18,7 @@
   <% end %>
 </p>
 
+<!-- Activity Feed for Profile User -->
 <% unless !user_signed_in? || current_user != @user %>
   <p><%= link_to 'Activity Feed', user_feed_path(@user) %></p>
 <% end %>
