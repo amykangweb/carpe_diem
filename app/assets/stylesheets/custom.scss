@@ -22,7 +22,7 @@ a {
   border: none;
 }
 
-.navbar-brand {
+a.navbar-brand {
   font-family: 'Pacifico', cursive;
   font-size: 1.75em;
 }
@@ -74,6 +74,7 @@ a {
 /* Set flash message bottom margin to 0 */
 
 .alert {
+  margin-top: 8px;
   margin-bottom: 0;
 }
 
@@ -82,6 +83,7 @@ a {
 }
 
 h4 {
+  margin-top: -5px;
   margin-bottom: 10px;
   .glyphicon {
     opacity: 0.90;
@@ -95,7 +97,7 @@ h4 {
   background: image-url('day-sky.svg');
   background-position: center 40%;
   background-size: cover;
-  height: 315px !important;
+  height: 375px !important;
 }
 
 .text-container  {
@@ -103,7 +105,7 @@ h4 {
   h1 {
     font-family: 'Pacifico', cursive;
     color: #494948;
-    margin-top: 0;
+    margin-top: 30px;
     margin-bottom: 20px;
   }
   .lead {
@@ -155,11 +157,25 @@ a.btn-visited:visited {
 }
 
 div.top-tags {
-  background: #fff;
-  height: 100px;
   text-align: center;
-  padding: 10px;
-  padding-top: 25px;
+  padding-top: 30px 10px 30px 10px;
+}
+
+a.large {
+  font-weight: bold;
+  font-size: 25px;
+  color: #AA3939 !important;
+}
+
+a.medium {
+  font-weight: bold;
+  font-size: 20px;
+  color: #00936E !important;
+}
+
+a.small {
+  font-size: 15px;
+  color: #FF6600 !important;
 }
 
 footer {

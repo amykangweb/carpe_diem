@@ -2,19 +2,90 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-a.large {
-  font-weight: bold;
-  font-size: 25px;
-  color: #AA3939 !important;
+.goal-page {
+  background: #fff;
+  padding-bottom: 30px;
+  z-index: 100;
+  margin-top: -325px;
+  a {
+    color: #199E7C !important;
+  }
 }
 
-a.medium {
-  font-weight: bold;
-  font-size: 20px;
-  color: #00936E !important;
+.user-info {
+  margin-top: 40px;
 }
 
-a.small {
-  font-size: 15px;
-  color: #FF6600 !important;
+.user-goal {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 1.3em;
+}
+
+.btn-goal {
+  font-size: 15px !important;
+  color: #fff !important;
+  margin-bottom: 15px;
+  &:visited {
+    color: #fff !important;
+  }
+}
+
+p.control {
+  position: absolute;
+  right: 20px;
+  margin-top: 20px;
+}
+
+.new-entry {
+  position: absolute;
+  left: 20px;
+  margin-top: 20px;
+  .btn-primary {
+    color: #fff !important;
+  }
+}
+
+.entries-title {
+  margin-top: 5px;
+}
+
+.entries {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-left: 30px;
+}
+
+ul.entries {
+  list-style: none;
+  .no-entries {
+    font-size: 17px;
+  }
+}
+
+.entry {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  background: #fff;
+  height: 200px;
+}
+
+.cheer-count {
+  color: #FF6600;
+}
+
+.no-entries {
+  margin-left: -50px;
+}
+
+.goal-tags-title {
+  margin-top: 15px;
+}
+
+.goal-tags {
+  text-align: center;
+  padding-top: 15px;
+  .tag {
+    font-size: 1.2em;
+  }
 }

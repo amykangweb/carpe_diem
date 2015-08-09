@@ -6,14 +6,6 @@ class Goal < ActiveRecord::Base
   has_many :tags, through: :taggings
   validates :description, presence: true, length: { maximum: 40 }
 
-  def cheers_count
-    count = 0
-    self.entries.each do |entry|
-      count += entry.cheering_users.count
-    end
-    return count
-  end
-
   def completed?
     self.completed == true
   end

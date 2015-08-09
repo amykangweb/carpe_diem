@@ -54,7 +54,7 @@ describe 'Edit Goal' do
 
   it 'returns notice on marking incomplete' do
     click_link 'Mark as Completed.'
-    click_link 'Start Again.'
+    click_link 'Goal Completed.'
     expect(page).to have_content("Goal has been marked as incomplete.")
   end
 

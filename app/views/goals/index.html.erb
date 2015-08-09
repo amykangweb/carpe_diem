@@ -9,6 +9,7 @@
 </div>
 
 <div class="container">
+
   <h4><span class='glyphicon glyphicon-list'></span>&nbsp;&nbsp;Recent Goals</h4>
   <!-- Goals Limit 16 -->
   <div class="row">
@@ -39,11 +40,11 @@
 
   <h4><span class='glyphicon glyphicon-tags'></span>&nbsp;&nbsp;Popular Tags</h4>
 
-  <div class="top-tags">
-    <% Tag.top_tags.shuffle.each do |tag| %>
-      <%= link_to tag.name, tag_path(tag),
-      class: (Tag.size?(tag)) %>
-    <% end %>
+  <div class="col-md-12 top-tags">
+      <% Tag.top_tags.shuffle.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag),
+        class: (Tag.size?(tag)) %>
+      <% end %>
   </div>
 
   <br>

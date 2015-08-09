@@ -1,50 +1,63 @@
-<!-- User Avatar -->
-<p><%= image_tag @user.gravatar_url, class: 'avatar' %></p>
+<!-- Jumbotron -->
+<div class="jumbotron">
+</div>
 
-<p>
-  <!-- Username & Goal -->
-  <strong><%= link_to @user.username.titleize, @user %><%= " wants to #{@goal.description}" %></strong><br>
-  <!-- Goal Cheers Count -->
-  <span><%= @goal.cheers_count %> <strong>Cheers</strong></span>
-</p>
+<div class="container">
 
-<!-- Mark Goal as completed links. -->
-<%= render 'completed' %>
+  <div class="col-lg-12 goal-page">
 
-<p><% if @goal.private? %><em>private</em><% end %></p>
-
-<!-- Edit & Destroy links -->
-<%= render 'control' %>
-
-<!-- Follow/Unfollow Buttons -->
-<p>
-  <% if user_signed_in? && current_user != @user %>
-    <% if current_user.following?(@user) %>
-      <%= render partial: 'friendships/unfollow' %>
-    <% else %>
-      <%= render partial: 'friendships/follow' %>
-    <% end %>
+  <!-- Create New Entry for Goal -->
+  <% unless current_user != @user || @goal.completed? %>
+    <p class="new-entry"><%= link_to "New Entry", new_goal_entry_path(@goal), class: 'btn btn-primary' %></p>
   <% end %>
-</p>
 
-<!-- Create New Entry for Goal -->
-<% unless current_user != @user || @goal.completed? %>
-  <p><%= link_to "New Entry", new_goal_entry_path(@goal) %></p>
-<% end %>
+  <!-- Edit & Destroy links -->
+  <%= render 'control' %>
 
-<!-- Show entries for goal -->
-<%= render 'entries' %>
+  <div class="user-info text-center">
 
-<p>
-  <%= social_share_button_tag("Carpe Diem: #{@goal.description}", url: @goal) %>
-</p>
+  <!-- User Avatar -->
+  <p><%= image_tag @user.gravatar_url, class: 'avatar goal-avatar' %></p>
 
-<p>
- <strong>Tags:</strong>
- <% @goal.tags.each do |tag| %>
-  <%= link_to tag.name, tag_path(tag) %>
- <% end %>
-</p>
+  <!-- Username & Goal -->
+  <p class="user-goal">
+    <strong><%= link_to @user.username.titleize, @user %><%= " wants to #{@goal.description}" %></strong><br>
+  </p>
 
-<%= link_to 'Edit', edit_goal_path(@goal) %> |
-<%= link_to 'Back', goals_path %>
+  <p><% if @goal.private? %><small><em>private</em></small><% end %></p>
+
+    <!-- Mark Goal as completed links. -->
+    <%= render 'completed' %>
+
+    <!-- Follow/Unfollow Buttons -->
+    <p>
+      <% if user_signed_in? && current_user != @user %>
+        <% if current_user.following?(@user) %>
+          <%= render partial: 'friendships/unfollow' %>
+        <% else %>
+          <%= render partial: 'friendships/follow' %>
+        <% end %>
+      <% end %>
+    </p>
+
+  </div>
+
+  <h4 class="entries-title"><span class='glyphicon glyphicon-list'></span>&nbsp;&nbsp;Entries</h4>
+
+  <!-- Show entries for goal -->
+  <%= render 'entries' %>
+
+  <p class="social">
+    <%= social_share_button_tag("Carpe Diem: #{@goal.description}", url: @goal) %>
+  </p>
+
+  <h4 class="goal-tags-title"><span class='glyphicon glyphicon-tags'></span>&nbsp;&nbsp;Tags</h4>
+
+  <div class="col-md-12 goal-tags">
+     <% @goal.tags.each do |tag| %>
+      <strong><%= link_to tag.name, tag_path(tag), class: 'tag' %></strong>
+     <% end %>
+  </div>
+
+  </div>
+</div>
