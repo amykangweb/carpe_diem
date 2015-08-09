@@ -12,7 +12,7 @@ describe "Creating entry items" do
     create_entry("Bought brushes")
     expect(page).to have_content("Entry was successfully created.")
 
-    within("div.entries") do
+    within("ul.entries") do
       expect(page).to have_content("Bought brushes")
     end
   end

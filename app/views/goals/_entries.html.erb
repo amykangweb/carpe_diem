@@ -1,10 +1,13 @@
-<div class="entries">
+<ul class="entries">
   <% unless @goal.entries.blank? %>
     <% @goal.entries.each do |entry| %>
 
-      <p><%= entry.content %></p>
+      <li class="entry">
+        <p><%= h truncate(entry.content, length: 1000) %></p>
 
-      <span>
+      <hr>
+
+      <div class="entry-control">
         <%= link_to "View Entry", goal_entry_path(@goal, entry) %>&nbsp;
         <span class="cheer-count"><%= "#{entry.cheering_users.count} cheers" %></span>&nbsp;
 
@@ -19,16 +22,19 @@
             data: { confirm: 'Are you sure you want to delete this entry?' } %>
           </p>
         <% end %>
-        </span>
+      </div>
+      </li>
 
           <p>
     <% end %>
   <% else %>
     <!-- If no entries -->
-    <p class="no-entries">No Entries</p>
+    <li class="no-entries">No Entries</li>
   <% end %>
-</div>
+</ul>
 
-<p>
-  <%= will_paginate @entries %>
-</p>
+<div class="text-center">
+  <p class="pagination">
+    <%= will_paginate @entries, renderer: BootstrapPagination::Rails %>
+  </p>
+</div>

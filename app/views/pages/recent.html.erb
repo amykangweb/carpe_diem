@@ -1,17 +1,32 @@
-<h1>Recent Goals</h1>
+<div class="container recent-goals">
 
-<ul>
-  <% @goals.each do |goal| %>
-    <li>
-      <%= image_tag goal.user.gravatar_url, class: 'avatar' %><br>
+  <h4><span class='glyphicon glyphicon-list'></span>&nbsp;&nbsp;Recent Goals</h4>
+  <!-- Goals Limit 16 -->
+  <div class="row">
 
-      <p><strong><%= link_to goal.user.username.titleize, goal.user %></strong> wants to <strong><%= link_to goal.description, goal %></strong></p>
+      <% @goals.each do |goal| %>
 
-      <% goal.tags.each do |tag| %>
-        <%= link_to tag.name, tag_path(tag) %>&nbsp;
+      <div class="col-sm-3 text-center">
+        <div class="home-padding">
+          <p>
+            <%= link_to image_tag(goal.user.gravatar_url, class: 'avatar'), goal.user %>
+          </p>
+
+          <p>
+            <strong><%= link_to goal.user.username.titleize, goal.user %></strong>
+            <%= " wants to " %>
+            <strong><%= link_to goal.description, goal %></strong>
+          </p>
+
+          <p><%= link_to "View", goal, class: 'btn btn-default' %></p>
+
+        </div>
+      </div>
+
       <% end %>
-    </li>
-  <% end %>
-</ul>
 
-<%= will_paginate @goals %>
+  <div class="text-center">
+    <p class="pagination">
+      <%= will_paginate @goals, renderer: BootstrapPagination::Rails %>
+    </p>
+  </div>

@@ -12,6 +12,10 @@
   }
 }
 
+.goal-avatar {
+
+}
+
 .user-info {
   margin-top: 40px;
 }
@@ -22,7 +26,8 @@
   font-size: 1.3em;
 }
 
-.btn-goal {
+a.btn-goal {
+  clear: right;
   font-size: 15px !important;
   color: #fff !important;
   margin-bottom: 15px;
@@ -58,24 +63,37 @@ p.control {
 
 ul.entries {
   list-style: none;
+  padding-left: 20px;
+  margin-left: -20px;
   .no-entries {
     font-size: 17px;
   }
+  .entry {
+    padding: 15px 15px 10px 15px;
+  }
 }
 
-.entry {
-  padding-top: 20px;
-  padding-bottom: 10px;
-  background: #fff;
-  height: 200px;
+.entries {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  li:nth-of-type(odd) {
+    background: #E2E2D4;
+  }
+}
+
+.entry-control {
+  margin-top: -10px;
 }
 
 .cheer-count {
   color: #FF6600;
 }
 
-.no-entries {
-  margin-left: -50px;
+li.no-entries {
+  text-align: center;
+  height: 50px;
+  padding-top: 10px;
+  background: #fff !important;
 }
 
 .goal-tags-title {

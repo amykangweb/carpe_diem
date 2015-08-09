@@ -43,7 +43,7 @@ describe 'Destroy Entry' do
       check_others("friend")
       click_link 'Learn to paint'
 
-      within("div.entries") do
+      within("ul.entries") do
         expect(page).not_to have_content('Destroy')
       end
     end
