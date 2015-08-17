@@ -1,31 +1,42 @@
-<p><%= image_tag @user.gravatar_url, class: 'avatar' %></p>
+<!-- Jumbotron -->
+<div class="jumbotron profile-bg">
+</div>
 
-<h1><%= @user.username.titleize %></h1>
+  <!-- User Basic Information -->
+    <div class="profile-container text-center">
+      <%= image_tag @user.gravatar_url, class: 'profile-avatar avatar' %>
 
-<p><%= link_to @user.completed_goals, user_accomplished_path(@user) %> <strong>Goals Completed</strong></p>
+      <div class="user-basics">
+        <h1 class="username"><%= @user.username.titleize %></h1>
 
-<!-- Show Followers and Following -->
-<%= render 'friends' %>
+        <p class="completed-count"><%= link_to @user.completed_goals, user_accomplished_path(@user) %> Goals Completed</p>
 
-<!-- Follow/Unfollow Buttons -->
-<p>
-  <% if user_signed_in? && current_user != @user %>
-    <% if current_user.following?(@user) %>
-      <%= render partial: 'friendships/unfollow' %>
-    <% else %>
-      <%= render partial: 'friendships/follow' %>
-    <% end %>
-  <% end %>
-</p>
+        <!-- Show Followers and Following -->
+          <%= render 'friends' %>
 
-<!-- Activity Feed for Profile User -->
-<% unless !user_signed_in? || current_user != @user %>
-  <p><%= link_to 'Activity Feed', user_feed_path(@user) %></p>
-<% end %>
+        <!-- Activity Feed for Profile User -->
+          <% unless !user_signed_in? || current_user != @user %>
+            <p><%= link_to 'Activity Feed', user_feed_path(@user) %></p>
+          <% end %>
 
-<h2><%= "#{@user.username.titleize}'s Goals" %></h2>
+        <!-- Follow/Unfollow Buttons -->
+          <p>
+            <% if user_signed_in? && current_user != @user %>
+              <% if current_user.following?(@user) %>
+                <%= render partial: 'friendships/unfollow' %>
+              <% else %>
+                <%= render partial: 'friendships/follow' %>
+              <% end %>
+            <% end %>
+          </p>
+      </div>
+  </div>
 
-<!-- List User's Goals -->
-<%= render 'goals' %>
+  <div class="container user-goals">
+    <!-- List User's Goals -->
+      <h4><span class='glyphicon glyphicon-list'></span>&nbsp;&nbsp;<%= "#{@user.username.titleize}'s Goals" %></span></h4>
 
-<p><%= link_to 'Back', root_url %></p>
+        <%= render 'goals' %>
+
+  </div><!-- End Container-->
+

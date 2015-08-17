@@ -15,16 +15,15 @@
   <%= render 'control' %>
 
   <div class="user-info text-center">
+  <% if @goal.private? %><p><small><em>private</em></small></p><% end %>
 
   <!-- User Avatar -->
   <p><%= image_tag @user.gravatar_url, class: 'avatar goal-avatar' %></p>
 
   <!-- Username & Goal -->
   <p class="user-goal">
-    <strong><%= link_to @user.username.titleize, @user %><%= " wants to #{@goal.description}" %></strong><br>
+    <strong><%= link_to @user.username.titleize, @user %><%= " wants to #{@goal.description}" %></strong>
   </p>
-
-  <p><% if @goal.private? %><small><em>private</em></small><% end %></p>
 
     <!-- Mark Goal as completed links. -->
     <%= render 'completed' %>

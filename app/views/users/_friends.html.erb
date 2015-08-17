@@ -1,9 +1,9 @@
-<ul>
+<ul class="user-friends">
 
-  <li><%= link_to "Followers (#{@user.followers.count})",
-  user_followers_path(@user) %></li>
+  <li class="followers">Followers (<%= link_to @user.followers.count,
+  user_followers_path(@user) %>)</li>
 
-  <li><%= link_to "Following (#{@user.friendships.count})",
-  user_following_path(@user) %></li>
+  <li class="following">Following (<%= link_to @user.friendships.count,
+  user_following_path(@user) %>)</li>
 
 </ul>
