@@ -1,26 +1,35 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :uncheer, :cheer, :edit, :update, :destroy]
   before_action :set_goal
-  before_action :authenticate_user!, only: [:cheer, :new, :create, :edit, :update,
+  before_action :authenticate_user!, only: [:cheer, :uncheer, :new, :create, :edit, :update,
     :destroy]
   before_action :check_user, only: [:edit, :update, :destroy]
   before_action :entry_goal_user?, only: [:new, :create]
+  before_action :set_cheerers, only: [:cheer, :uncheer, :show]
+  before_action :previous_entry, only: [:show]
+  before_action :next_entry, only: [:show]
 
   def cheer
     @cheered = @entry.cheers.create(user_id: current_user.id)
+
     if @cheered.save
-      flash[:notice] = "Thank you for cheering!"
-      redirect_to :back
+      respond_to do |format|
+        flash.now[:notice] = "Thank you for cheering!"
+        format.js { render 'cheer' }
+      end
     else
-      flash[:alert] = "You have already cheered this."
+      flash.now[:alert] = "You have already cheered this."
       redirect_to :back
     end
   end
 
   def uncheer
     Cheer.destroy_all(entry_id: @entry.id, user_id: current_user.id)
-    flash[:alert] = "You have uncheered this entry."
-    redirect_to :back
+
+    respond_to do |format|
+      flash.now[:alert] = "You have uncheered this entry."
+      format.js { render 'cheer' }
+    end
   end
 
   # GET /entries
@@ -33,8 +42,7 @@ class EntriesController < ApplicationController
   # GET /entries/1.json
   def show
     @comment = Comment.new
-    @cheerers = @entry.cheering_users.limit(10)
-    @comments = @entry.comments.paginate(page: params[:page], per_page: 20)
+    @comments = @entry.comments.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /entries/new
@@ -89,6 +97,20 @@ class EntriesController < ApplicationController
   end
 
   private
+    # returns next entry
+    def next_entry
+      container = @goal.entries.select { |obj| obj.id > @entry.id }
+      @next = container.sort_by(&:id).first
+    end
+    # returns previous entry
+    def previous_entry
+      container = @goal.entries.select { |obj| obj.id < @entry.id }
+      @previous = container.sort_by(&:id).last
+    end
+    # return array of entry cheerers
+    def set_cheerers
+      @cheerers = @entry.cheering_users.limit(10)
+    end
     # set goal id for entries
     def set_goal
       @goal = Goal.find(params[:goal_id])

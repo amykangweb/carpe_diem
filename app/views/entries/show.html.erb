@@ -1,24 +1,72 @@
-<p id="notice"><%= notice %></p>
+<div class="container entry-page">
 
+<!-- Entry Information -->
 <p>
-  <%= @entry.content %>
+  <strong>
+    <%= link_to @entry.user.username.titleize, @entry.user %>
+    <%= " wants to " %>
+    <%= link_to @entry.goal.description, goal_path(@goal) %>
+  </strong>
 </p>
 
-<!-- Entry Cheer Count -->
-<p>
-  <%= "#{@entry.cheering_users.count} cheers" %>
+<!-- Previous/Next Arrows -->
+<p class="arrow">
+
+  <% unless @previous.nil? %>
+    <%= link_to "<span class='glyphicon glyphicon-arrow-left'></span>".html_safe, goal_entry_path(@goal, @previous), class: 'arrow' %>
+  <% end %>
+
+  <% unless @next.nil? %>
+    &nbsp;
+    <%= link_to "<span class='glyphicon glyphicon-arrow-right'></span>".html_safe, goal_entry_path(@goal, @next), class: 'arrow' %>
+  <% end %>
+
 </p>
 
-<!-- Cheer Entry & Edit/Delete Controls -->
-<%= render 'control' %>
+  <!-- Main Entry Content -->
+  <div class="content">
 
-<!-- Entry Cheerers -->
-<%= render 'cheerers' %>
+    <!-- Edit/Delete Links -->
+    <p class="entry-page-control">
+      <%= render 'control' %>
+    </p>
 
-<%= link_to 'Goal', goal_path(@goal) %>
+    <section>
+      <%= @entry.content %>
+    </section>
 
-<!-- Comments Form -->
-<%= render partial: 'comments/form', goal: @goal %>
+    <p class="clear"></p>
 
-<!-- Entry Comments -->
-<%= render 'comments' %>
+    <hr>
+
+    <ul class="cheer-master">
+    <!-- Entry Cheer Count -->
+      <li class="entry-cheer-count cheer-count">
+        <%= "#{@entry.cheering_users.count} cheers" %>
+      </li>
+
+      <!-- Cheer Entry -->
+      <li class="cheer-control">
+        <%= render 'cheer' %>
+      </li>
+
+    </ul>
+    <!-- Entry Created At -->
+    <p class="entry-created">
+      posted <strong><%= time_ago_in_words(@entry.created_at) %></strong> ago.
+    </p>
+  </div>
+
+  <!-- Entry Cheerers -->
+  <p class="entry-cheerers">
+    <%= render 'cheerers' %>
+  </p>
+
+  <!-- Comments Form -->
+  <p class="comment-form">
+    <%= render partial: 'comments/form', goal: @goal %>
+  </p>
+
+  <!-- Entry Comments -->
+  <%= render 'comments' %>
+</div>

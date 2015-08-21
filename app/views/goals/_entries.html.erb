@@ -11,18 +11,19 @@
         <%= link_to "View Entry", goal_entry_path(@goal, entry) %>&nbsp;
         <span class="cheer-count"><%= "#{entry.cheering_users.count} cheers" %></span>&nbsp;
 
-        <!-- Cheer/Uncheer Entry Controls -->
-        <%= render 'cheers', entry: entry %>&nbsp;
-
         <!-- Entry Edit/Destroy Links -->
         <% if authorized_user?(entry) %>
-          <p>
+          <p class="goal-page-entry-control">
             <%= link_to 'Edit', edit_goal_entry_path(@goal, entry) %>&nbsp;&nbsp;|&nbsp;
             <%= link_to 'Destroy', [@goal, entry], method: :delete,
             data: { confirm: 'Are you sure you want to delete this entry?' } %>
           </p>
         <% end %>
       </div>
+
+      <p class="created">
+        posted <strong><%= time_ago_in_words(entry.created_at) %></strong> ago.
+      </p>
       </li>
 
           <p>

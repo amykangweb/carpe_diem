@@ -1,20 +1,39 @@
 <div class="comments">
-<% @comments.each do |comment| %>
-    <p><strong><%= link_to comment.user.username.titleize, comment.user %>:
-    </strong> <%= comment.body %><br>
+  <% @comments.each do |comment| %>
+    <div class="comment-block">
+      <p>
+        <strong>
+          <%= link_to comment.user.username.titleize, comment.user %>&nbsp;says:
+        </strong>
+      </p>
 
-    <% if authorized_user?(comment) %>
-      <%= link_to 'Edit',
-      edit_goal_entry_comment_path(@goal, @entry, comment) %>&nbsp;
-    <% end %>
+      <blockquote>
+        <%= comment.body %>
+      </blockquote>
 
-    <% if authorized_user?(@entry) %>
-      <%= link_to 'Destroy', [@goal, @entry, comment], method: :delete,
-      data: { confirm: 'Are you sure you want to delete this comment?' } %>
-    <% end %>
+      <hr>
 
-    </p>
-<% end %>
+      <p>
+        posted <strong><%= time_ago_in_words(comment.created_at) %></strong> ago
+      </p>
+
+      <p class="comment-controls">
+        <% if authorized_user?(comment) %>
+          <%= link_to 'Edit',
+          edit_goal_entry_comment_path(@goal, @entry, comment) %>&nbsp;
+        <% end %>
+
+        <% if authorized_user?(@entry) %>
+          &nbsp;<%= link_to 'Destroy', [@goal, @entry, comment], method: :delete,
+          data: { confirm: 'Are you sure you want to delete this comment?' } %>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
 </div>
 
-<%= will_paginate @comments %>
+<div class="text-center">
+  <p class="pagination">
+    <%= will_paginate @comments, renderer: BootstrapPagination::Rails %>
+  </p>
+</div>

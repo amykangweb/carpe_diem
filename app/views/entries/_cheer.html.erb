@@ -1,0 +1,16 @@
+<!-- Cheer & Edit/Delete Entry Controls -->
+
+<!-- Cheer/Uncheer Entry -->
+<% if user_signed_in? %>
+<!-- Show cheer links if signed in -->
+  <% if @entry.cheered?(current_user) %>
+    <%= link_to "Thanks!", uncheer_goal_entry_path(@goal, @entry), method: :patch, remote: true %>
+  <% else %>
+      <%= link_to "Cheer!",
+    cheer_goal_entry_path(@goal, @entry), method: :post, remote: true %>&nbsp;
+  <% end %>
+<!-- Redirect to Sign In page if not signed in -->
+<% else %>
+  <%= link_to "Cheer!",
+    new_user_session_path %>&nbsp;
+<% end %>

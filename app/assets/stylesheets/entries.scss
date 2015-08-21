@@ -1,3 +1,87 @@
 // Place all the styles related to the entries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.entry-page {
+  margin-top: 50px;
+  position: relative;
+  p.arrow {
+    font-size: 1.25em;
+    position: absolute;
+    top: 0;
+    right: 20px;
+  }
+  a {
+    color: #199E7C !important;
+  }
+  .content {
+    background: #fff;
+    padding: 20px;
+    padding-bottom: 35px;
+    position: relative;
+    hr {
+      margin-bottom: 10px;
+    }
+  }
+  section {
+    margin: 20px;
+  }
+  ul.cheer-master {
+    padding: 0;
+    position: absolute;
+    bottom: 5px;
+    left: 30px;
+    li {
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+  .entry-page-control {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    margin-top: 5px;
+  }
+}
+
+p.clear {
+  clear: both;
+  display: block;
+}
+
+.entry-cheerers {
+  margin-top: 15px;
+}
+
+.entry-created {
+  float: right;
+}
+
+p.comment-form {
+  margin-top: 10px;
+}
+
+div.comments {
+  margin-top: 20px;
+}
+
+.comment-block {
+  position: relative;
+  background: #fff;
+  padding: 10px;
+  padding-bottom: 5px;
+  margin: 15px;
+  hr {
+    margin-bottom: 10px;
+  }
+}
+
+blockquote {
+  font-size: 1em;
+}
+
+.comment-controls {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}

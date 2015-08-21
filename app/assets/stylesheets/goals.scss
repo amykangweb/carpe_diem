@@ -13,11 +13,11 @@
 }
 
 .goal-avatar {
-
+  margin-top: 20px;
 }
 
 .user-info {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .user-goal {
@@ -87,6 +87,15 @@ ul.entries {
 
 .cheer-count {
   color: #FF6600;
+}
+
+.goal-page-entry-control {
+  margin-top: 5px;
+}
+
+.created {
+  float: right;
+  margin-top: -20px;
 }
 
 li.no-entries {

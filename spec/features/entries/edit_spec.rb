@@ -37,7 +37,7 @@ describe 'Edit Entry' do
   context "link is present and working on entry page" do
     it 'for entry owner' do
       click_link 'View Entry'
-      edit_entry(".control")
+      edit_entry(".entry-page-control")
     end
 
     it 'for admin' do
@@ -45,7 +45,7 @@ describe 'Edit Entry' do
       other_user("admin")
       click_link 'Learn to paint'
       click_link 'View Entry'
-      edit_entry(".control")
+      edit_entry(".entry-page-control")
     end
   end
 end

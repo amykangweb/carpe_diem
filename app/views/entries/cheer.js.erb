@@ -1,0 +1,4 @@
+$(".flash").html('<%= j render "layouts/flash" %>');
+$(".entry-cheer-count").html('<%= "#{@entry.cheering_users.count} cheers" %>');
+$(".entry-cheerers").html("<%= j render partial: 'cheerers', cheerers: @cheerers %>");
+$(".cheer-control").html("<%= j render partial: 'cheer' %>");
