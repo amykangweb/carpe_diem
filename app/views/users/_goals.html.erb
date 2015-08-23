@@ -3,7 +3,7 @@
 
   <% unless goal.private? && current_user != @user && !current_user.try(:admin?) %>
 
-    <div class="col-sm-3 text-center">
+    <div class="col-md-4 text-center">
       <div class="home-padding<% if goal.private? %><%= " private" %><% end %>">
 
           <p>
@@ -20,17 +20,6 @@
             <p>
               <span><% if goal.completed? %><em>completed</em><% end %></span>
             </p>
-
-            <!-- Only show View button if current user is not profile user -->
-              <% if current_user != @user %>
-                <p><%= link_to "View", goal, class: 'btn btn-default' %></p>
-              <% end %>
-
-              <% if authorized_user?(goal) %>
-                <%= link_to 'Edit', edit_goal_path(goal), class: 'btn btn-default' %>&nbsp;
-                <%= link_to 'Destroy', goal, method: :delete,
-                data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
-              <% end %>
           </div>
       </div>
     </div>

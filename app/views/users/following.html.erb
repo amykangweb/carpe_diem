@@ -1,9 +1,18 @@
-<h2>Following</h2>
-<ul class="following">
-  <% @user.friendships.each do |user| %>
-    <li>
-    <%= link_to user.friend.username, user.friend %>
-    <span><%= link_to 'unfollow', user, method: :delete %></span>
-    </li>
-  <% end %>
-</ul>
+<div class="container form-page">
+  <h3><strong><%= @user.username.titleize %>'s</strong> Following</h3>
+    <ul class="following followers">
+      <% if !@user.blank? %>
+
+        <% @user.friendships.each do |user| %>
+          <li>
+            <%= link_to user.friend.username, user.friend %>
+          </li>
+        <% end %>
+
+      <% else %>
+        <li>
+          Nothing here.
+        </li>
+      <% end %>
+    </ul>
+</div>

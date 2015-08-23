@@ -1,7 +1,38 @@
 .recent-goals {
-  margin-top: 50px;
+  margin-top: 40px;
+  h4 {
+    margin-bottom: 15px;
+  }
 }
 
 .pagination {
   display: inline-block;
+}
+
+.form-page {
+  position: relative;
+  background: #fff;
+  padding-bottom: 30px;
+  color: #494948;
+  margin-top: 40px;
+  h3 {
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+a.back-to-goal {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+
+ul.followers {
+  padding: 0;
+}
+
+ul.followers li {
+  display: inline-block;
+  font-weight: bold;
+  margin: 10px;
 }

@@ -1,11 +1,33 @@
-<h1>All goals tagged: <%= @tag.name %></h1>
+<div class="container recent-goals">
+  <h4>All goals tagged: <strong><%= @tag.name %></strong></h4>
 
-<% @tag.goals.each do |goal| %>
-  <% unless goal.private? %>
-    <p>
-      <strong><%= link_to goal.user.username, goal.user %></strong>
-      <%= " wants to " %>
-      <strong><%= link_to goal.description, goal %></strong>
-    </p>
+<div class="row">
+
+  <% @goals.each do |goal| %>
+    <% unless goal.private? %>
+      <div class="col-md-4 text-center">
+        <div class="home-padding">
+          <p>
+            <%= link_to image_tag(goal.user.gravatar_url, class: 'avatar'), goal.user %>
+          </p>
+
+          <p>
+            <strong><%= link_to goal.user.username.titleize, goal.user %></strong>
+            <%= " wants to " %>
+            <strong><%= link_to goal.description, goal %></strong>
+          </p>
+
+        </div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+
+</div>
+
+  <div class="text-center">
+    <p class="pagination">
+      <%= will_paginate @goals, renderer: BootstrapPagination::Rails %>
+    </p>
+  </div>
+</div>
+

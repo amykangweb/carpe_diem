@@ -1,4 +1,6 @@
 <div class="comments">
+  <h4><span class="glyphicon glyphicon-comment"></span>&nbsp;Comments</h4>
+  <% if !@comments.blank? %>
   <% @comments.each do |comment| %>
     <div class="comment-block">
       <p>
@@ -29,6 +31,9 @@
         <% end %>
       </p>
     </div>
+  <% end %>
+  <% else %>
+  <p class="text-center">No Comments</p>
   <% end %>
 </div>
 

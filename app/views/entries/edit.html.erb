@@ -1,5 +1,9 @@
-<%= link_to 'Back to Goal', goal_path(@goal) %>
+<div class="container form-page">
 
-<h1>Editing Entry</h1>
+  <%= link_to 'Back to Goal', goal_path(@goal), class: "back-to-goal" %>
 
-<%= render 'form' %>
+  <h3>Editing Entry</h3>
+
+  <%= render 'form' %>
+
+</div>

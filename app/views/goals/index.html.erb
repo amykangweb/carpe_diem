@@ -21,7 +21,7 @@
 
       <% @goals.each do |goal| %>
 
-      <div class="col-sm-3 text-center">
+      <div class="col-md-4 text-center">
         <div class="home-padding">
           <p>
             <%= link_to image_tag(goal.user.gravatar_url, class: 'avatar'), goal.user %>
@@ -32,8 +32,6 @@
             <%= " wants to " %>
             <strong><%= link_to goal.description, goal %></strong>
           </p>
-
-          <p><%= link_to "View", goal, class: 'btn btn-default' %></p>
 
         </div>
       </div>

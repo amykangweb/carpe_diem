@@ -1,8 +1,18 @@
-<h2>Followers</h2>
-<ul class="followers">
-  <% @user.followers.each do |user| %>
-    <li>
-      <%= link_to user.username, user %>
-    </li>
-  <% end %>
-</ul>
+<div class="container form-page">
+  <h3><strong><%= @user.username.titleize %>'s</strong> Followers</h3>
+    <ul class="followers">
+      <% if !@user.blank? %>
+
+        <% @user.followers.each do |user| %>
+          <li>
+            <%= link_to user.username, user %>
+          </li>
+        <% end %>
+
+      <% else %>
+        <li>
+          Nothing here.
+        </li>
+      <% end %>
+    </ul>
+</div>
