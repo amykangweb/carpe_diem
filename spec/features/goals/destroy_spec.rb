@@ -24,22 +24,12 @@ describe 'Destroy Goal' do
   end
 
   context 'link is present and working for goal user' do
-    it 'on Profile page' do
-      click_link 'Profile'
-      destroy_goal
-    end
-
     it 'on Goal page' do
       destroy_goal
     end
   end
 
   context 'link is present and working for admin' do
-    it 'on Profile page' do
-      check_others("admin")
-      destroy_goal
-    end
-
     it 'on Goal page' do
       check_others("admin")
       click_link 'Learn to paint'

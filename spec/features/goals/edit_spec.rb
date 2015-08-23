@@ -21,24 +21,12 @@ describe 'Edit Goal' do
   end
 
   context 'link is present and working for goal user' do
-    it 'on Profile page' do
-      click_link 'Profile'
-      edit_goal
-    end
-
     it 'on Goal page' do
       edit_goal
     end
   end
 
   context 'link is present and working for admin' do
-    it 'on Profile page' do
-      click_link 'Sign Out'
-      other_user("admin")
-      click_link 'Wilbur'
-      edit_goal
-    end
-
     it 'on Goal page' do
       click_link 'Sign Out'
       other_user("admin")
