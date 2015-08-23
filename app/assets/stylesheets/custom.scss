@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
 @import url("https://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
 
 body {
@@ -11,15 +12,17 @@ body {
 /* Override default bootstrap link colors */
 
 a {
-  color: #494948 !important;
-  &:visited {
-    color: #3366FF !important;
-  }
+  /*color: #494948 !important;*/
+  color: #199E7C !important;
+}
+
+.btn {
+  border-radius: 0px !important;
 }
 
 .navbar {
-  background: #AA3939;
   border: none;
+  background: #fff;
 }
 
 a.navbar-brand {
@@ -29,7 +32,6 @@ a.navbar-brand {
 
 .navbar a {
   margin-top: 5px;
-  color: white !important;
   &:hover {
     opacity: 0.5;
   }
@@ -53,7 +55,6 @@ a.navbar-brand {
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-  background-color: #AA3939 !important;
 }
 
 /* Dropdown submenu color on hover, focus */
@@ -62,13 +63,13 @@ a.navbar-brand {
 .dropdown-menu > li > a:focus,
 .dropdown-submenu:hover > a,
 .dropdown-submenu:focus > a {
-  background-color: #AA3939 !important;
+  background: #199E7C !important;
+  color: #fff !important;
 }
 
 /* Dropdown menu background color */
 
 .dropdown-menu {
-  background: #AA3939;
 }
 
 /* Set flash message bottom margin to 0 */
@@ -78,38 +79,37 @@ a.navbar-brand {
   margin-bottom: 0;
 }
 
-.avatar {
-  border-radius: 50%;
-}
-
-h4 {
-  margin-top: -5px;
-  margin-bottom: 10px;
-  .glyphicon {
-    opacity: 0.90;
-  }
-}
-
 /* Main marketing message and sign up button */
+
+.jumbotron-wrapper {
+  background: #fff;
+  width: 100%;
+}
 
 .jumbotron {
   text-align: center;
-  background: image-url('day-sky.svg');
-  background-position: center 40%;
-  background-size: cover;
-  height: 375px !important;
+  background: image-url('billboard.png');
+  background-position: 60% center;
+  background-repeat: no-repeat;
+  height: 450px !important;
 }
 
 .text-container  {
-  color: #494948;
+  /*color: #494948;*/
+  color: #199E7C;
   h1 {
     font-family: 'Pacifico', cursive;
-    color: #494948;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    /*color: #494948;*/
+    margin-top: 45px;
+    margin-bottom: 30px;
   }
-  .lead {
-    font-family: 'Pacifico', cursive;
+  ul {
+      padding: 0;
+    li {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3em;
+      margin-bottom: 20px;
+    }
   }
 }
 
@@ -120,14 +120,27 @@ a.btn-visited:visited {
 
 .jumbotron .btn {
   padding: 14px 24px;
-  font-size: 21px;
+  font-size: 0.75em;
   border: none;
+  margin-top: 10px;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+h4 {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  .glyphicon {
+    opacity: 0.90;
+  }
 }
 
 .home-padding {
+  background: #fff;
   word-wrap: break-word;
   height: 220px;
-  background: #fff;
   margin-bottom: 20px;
   padding: 15px;
   padding-top: 20px;

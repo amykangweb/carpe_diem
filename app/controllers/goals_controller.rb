@@ -17,7 +17,7 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
-    @goals = Goal.where(private: false).limit(16)
+    @goals = Goal.where(private: false).limit(4)
   end
 
   # GET /goals/1

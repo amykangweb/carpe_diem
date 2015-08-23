@@ -1,7 +1,3 @@
-<!-- Jumbotron -->
-<div class="jumbotron">
-</div>
-
 <div class="container">
 
   <div class="col-lg-12 goal-page">
@@ -18,7 +14,7 @@
   <% if @goal.private? %><p><small><em>private</em></small></p><% end %>
 
   <!-- User Avatar -->
-  <p><%= image_tag @user.gravatar_url, class: 'avatar goal-avatar' %></p>
+  <p><%= link_to image_tag(@user.gravatar_url, class: 'avatar goal-avatar'), @user %></p>
 
   <!-- Username & Goal -->
   <p class="user-goal">

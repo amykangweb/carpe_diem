@@ -99,13 +99,11 @@ class EntriesController < ApplicationController
   private
     # returns next entry
     def next_entry
-      container = @goal.entries.select { |obj| obj.id > @entry.id }
-      @next = container.sort_by(&:id).first
+      @next = @goal.entries.select { |obj| obj.id > @entry.id }.last
     end
     # returns previous entry
     def previous_entry
-      container = @goal.entries.select { |obj| obj.id < @entry.id }
-      @previous = container.sort_by(&:id).last
+      @previous = @goal.entries.select { |obj| obj.id < @entry.id }.first
     end
     # return array of entry cheerers
     def set_cheerers
