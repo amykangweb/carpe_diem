@@ -29,20 +29,5 @@ describe 'Friendships' do
         expect(page).to_not have_link('Amy')
       end
     end
-
-    it 'from goal page' do
-      click_link 'Learn to play the piano.'
-      click_button 'Unfollow'
-      expect(page).to have_content('Successfully unfollowed user.')
-      click_link 'Profile'
-
-      within('li.following') do
-        click_link '0'
-      end
-
-      within('ul.following') do
-        expect(page).to_not have_link('Amy')
-      end
-    end
   end
 end

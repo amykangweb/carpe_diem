@@ -126,25 +126,33 @@ a.btn-visited:visited {
 }
 
 .avatar {
-  border-radius: 50%;
+  padding: 2px;
+  border: 1px solid #8B8B7E;
+}
+
+.glyphicon {
+  opacity: 0.90;
 }
 
 h4 {
+  font-family: 'Montserrat', sans-serif;
+  color: #494948;
   margin-top: -10px;
-  margin-bottom: 10px;
-  .glyphicon {
-    opacity: 0.90;
-  }
+  margin-bottom: 15px;
 }
 
 .home-padding {
+  position: relative;
   background: #fff;
   word-wrap: break-word;
   height: 175px;
   margin-bottom: 20px;
   padding: 15px;
-  padding-top: 20px;
-  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  p {
+    margin-top: 15px;
+  }
 }
 
 .view-more {

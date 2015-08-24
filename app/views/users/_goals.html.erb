@@ -4,7 +4,7 @@
   <% unless goal.private? && current_user != @user && !current_user.try(:admin?) %>
 
     <div class="col-md-4 text-center">
-      <div class="home-padding<% if goal.private? %><%= " private" %><% end %>">
+      <div class="home-padding">
 
           <p>
             <%= link_to image_tag(goal.user.gravatar_url, class: 'avatar'), goal.user %>
@@ -14,13 +14,14 @@
             <strong><%= link_to goal.user.username.titleize, goal.user %></strong>
             <%= " wants to " %>
             <strong><%= link_to goal.description, goal %></strong>
+            <% if goal.private? %>
+              <span class="glyphicon glyphicon-eye-close" title="Private"></span>
+            <% end %>
           </p>
 
-          <div class="control">
-            <p>
-              <span><% if goal.completed? %><em>completed</em><% end %></span>
-            </p>
-          </div>
+          <% if goal.completed? %>
+            <span class="glyphicon glyphicon-ok completed" title="Completed"></span>
+          <% end %>
       </div>
     </div>
 

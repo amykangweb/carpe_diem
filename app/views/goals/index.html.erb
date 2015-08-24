@@ -33,6 +33,10 @@
             <strong><%= link_to goal.description, goal %></strong>
           </p>
 
+          <% if goal.completed? %>
+            <span class="glyphicon glyphicon-ok completed" title="Completed"></span>
+          <% end %>
+
         </div>
       </div>
 

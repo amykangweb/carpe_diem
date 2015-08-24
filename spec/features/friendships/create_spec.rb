@@ -26,21 +26,6 @@ describe 'Friendships' do
         expect(page).to have_link('Amy')
       end
     end
-
-    it 'from goal page' do
-      click_link 'Learn to play the piano.'
-      click_button 'Follow'
-      expect(page).to have_content('Successfully followed user.')
-      click_link 'Profile'
-
-      within('li.following') do
-        click_link '1'
-      end
-
-      within('ul.following') do
-        expect(page).to have_link('Amy')
-      end
-    end
   end
 
   context 'does not show follow link' do
@@ -63,15 +48,10 @@ describe 'Friendships' do
       expect(page).to_not have_button('Follow')
     end
 
-    it 'on current user goal page' do
-      create_goal('Study physics')
-      expect(page).to_not have_button('Follow')
-    end
-
     it 'when user not signed in' do
       click_link 'Sign Out'
       visit '/goals'
-      click_link 'Learn to play the piano'
+      click_link 'Amy'
       expect(page).to_not have_button('Follow')
     end
   end

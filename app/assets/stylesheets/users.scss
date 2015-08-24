@@ -1,13 +1,15 @@
 .full-width-container {
-  height: 250px;
+  height: 275px;
   width: 100%;
   background: #fff;
   padding-top: 50px;
 }
 
 .profile-container {
+  font-family: 'Montserrat', sans-serif;
+  color: #494948;
   padding: 10px;
-  width: 310px;
+  width: 330px;
   margin: 0 auto;
   a {
     font-weight: bold;
@@ -28,7 +30,7 @@ h1.username {
 }
 
 .user-basics {
-  margin-left: 20px;
+  margin-left: 30px;
   text-align: left;
   float: left;
 }
@@ -49,6 +51,8 @@ ul.user-friends {
   padding-top: 30px;
 }
 
-.private {
-  background-color: #D5D5CB;
+span.completed {
+  position: absolute;
+  top: 5px;
+  right: 10px;
 }

@@ -11,29 +11,22 @@
   <%= render 'control' %>
 
   <div class="user-info text-center">
-  <% if @goal.private? %><p><small><em>private</em></small></p><% end %>
 
   <!-- User Avatar -->
   <p><%= link_to image_tag(@user.gravatar_url, class: 'avatar goal-avatar'), @user %></p>
 
   <!-- Username & Goal -->
   <p class="user-goal">
-    <strong><%= link_to @user.username.titleize, @user %><%= " wants to #{@goal.description}" %></strong>
+    <strong>
+      <%= link_to @user.username.titleize, @user %><%= " wants to #{@goal.description}" %>
+    </strong>
+    <% if @goal.private? %>
+      <span class="glyphicon glyphicon-eye-close" title="Private"></span>
+    <% end %>
   </p>
 
     <!-- Mark Goal as completed links. -->
     <%= render 'completed' %>
-
-    <!-- Follow/Unfollow Buttons -->
-    <p>
-      <% if user_signed_in? && current_user != @user %>
-        <% if current_user.following?(@user) %>
-          <%= render partial: 'friendships/unfollow' %>
-        <% else %>
-          <%= render partial: 'friendships/follow' %>
-        <% end %>
-      <% end %>
-    </p>
 
   </div>
 

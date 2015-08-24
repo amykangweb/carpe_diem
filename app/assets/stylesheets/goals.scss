@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .goal-page {
+  position: relative;
   background: #fff;
   padding-bottom: 30px;
   margin-top: 50px;
@@ -23,9 +24,13 @@
   padding-top: 15px;
   padding-bottom: 15px;
   font-size: 1.3em;
+  font-family: 'Montserrat', sans-serif;
+  color: #494948;
 }
 
 a.btn-goal {
+  font-family: 'Montserrat', sans-serif;
+  color: #494948;
   clear: right;
   font-size: 15px !important;
   color: #fff !important;
@@ -35,10 +40,14 @@ a.btn-goal {
   }
 }
 
+.glyphicon-eye-close {
+  margin-left: 5px;
+}
+
 p.control {
   position: absolute;
   right: 20px;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .new-entry {

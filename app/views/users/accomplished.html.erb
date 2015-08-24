@@ -1,4 +1,4 @@
-<div class="container recent-goals">
+<div class="container recent-goals accomplished">
 
   <h4><strong><%= @user.username.titleize %>'s</strong> Completed Goals</h4>
 
@@ -17,7 +17,14 @@
             <strong><%= link_to goal.user.username.titleize, goal.user %></strong>
             <%= " wants to " %>
             <strong><%= link_to goal.description, goal %></strong>
+            <% if goal.private? %>
+              <span class="glyphicon glyphicon-eye-close" title="Private"></span>
+            <% end %>
           </p>
+
+          <% if goal.completed? %>
+            <span class="glyphicon glyphicon-ok completed" title="Completed"></span>
+          <% end %>
 
         </div>
       </div>
