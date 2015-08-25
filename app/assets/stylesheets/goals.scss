@@ -1,10 +1,8 @@
-// Place all the styles related to the goals controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* CSS stylesheet for individual Goal pages. */
 
 .goal-page {
   position: relative;
-  background: #fff;
+  background: #F5F5F0;
   padding-bottom: 30px;
   margin-top: 50px;
   a {
@@ -30,7 +28,6 @@
 
 a.btn-goal {
   font-family: 'Montserrat', sans-serif;
-  color: #494948;
   clear: right;
   font-size: 15px !important;
   color: #fff !important;
@@ -94,7 +91,7 @@ ul.entries {
 }
 
 .cheer-count {
-  color: #FF6600;
+  font-weight: bold;
 }
 
 .goal-page-entry-control {
@@ -110,7 +107,7 @@ li.no-entries {
   text-align: center;
   height: 50px;
   padding-top: 10px;
-  background: #fff !important;
+  background: #F5F5F0 !important;
 }
 
 .goal-tags-title {

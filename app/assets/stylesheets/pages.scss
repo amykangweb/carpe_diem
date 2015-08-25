@@ -1,13 +1,9 @@
+/* CSS for Recent Goals page, Forms, Activity Feed, and API docs page. Also includes, site-wide styling for pagination links */
+
 .recent-goals {
   margin-top: 40px;
   h4 {
     margin-bottom: 15px;
-  }
-}
-
-.accomplished {
-  h4 {
-    margin-top: 10px;
   }
 }
 
@@ -17,9 +13,8 @@
 
 .form-page {
   position: relative;
-  background: #fff;
+  background: #F5F5F0;
   padding-bottom: 30px;
-  color: #494948;
   margin-top: 40px;
   h3 {
     margin-bottom: 20px;
@@ -33,12 +28,24 @@ a.back-to-goal {
   top: 15px;
 }
 
-ul.followers {
-  padding: 0;
+.api-docs {
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+  }
 }
 
-ul.followers li {
-  display: inline-block;
-  font-weight: bold;
-  margin: 10px;
+.feed {
+  font-family: 'Montserrat', sans-serif;
+  a {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+ul.feed-items {
+  margin-left: 10px;
+  padding: 0;
+  font-size: 1.25em;
+  background: #F5F5F0;
+  padding: 30px;
+  width: 100%;
 }

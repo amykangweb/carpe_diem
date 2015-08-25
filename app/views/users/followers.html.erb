@@ -5,7 +5,7 @@
 
         <% @user.followers.each do |user| %>
           <li>
-            <%= link_to user.username, user %>
+            <%= link_to user.username.titleize, user %>
           </li>
         <% end %>
 

@@ -36,7 +36,7 @@
   <%= render 'entries' %>
 
   <p class="social">
-    <%= social_share_button_tag("Carpe Diem: #{@goal.description}", url: @goal) %>
+    <%= social_share_button_tag("I want to #{@goal.description}.", url: "https://powerful-badlands-4671.herokuapp.com/goals/#{@goal.id}") %>
   </p>
 
   <h4 class="goal-tags-title"><span class='glyphicon glyphicon-tags'></span>&nbsp;&nbsp;Tags</h4>

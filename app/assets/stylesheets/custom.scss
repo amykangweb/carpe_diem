@@ -3,16 +3,17 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 @import url("https://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
 
+/* Main CSS for site. Includes Front Page styles, Navbar style, Footer style and CSS for commonly used elements site-wide. */
+
 body {
   padding-top: 50px;
-  background: #F3F3EC !important;
-  color: #31312C !important;
+  background: #DCDCD8 !important;
+  color: #494948 !important;
 }
 
 /* Override default bootstrap link colors */
 
 a {
-  /*color: #494948 !important;*/
   color: #199E7C !important;
 }
 
@@ -20,9 +21,10 @@ a {
   border-radius: 0px !important;
 }
 
+
 .navbar {
   border: none;
-  background: #fff;
+  background: #199E7C;
 }
 
 a.navbar-brand {
@@ -31,6 +33,7 @@ a.navbar-brand {
 }
 
 .navbar a {
+  color: #fff !important;
   margin-top: 5px;
   &:hover {
     opacity: 0.5;
@@ -55,6 +58,7 @@ a.navbar-brand {
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
+
 }
 
 /* Dropdown submenu color on hover, focus */
@@ -70,6 +74,7 @@ a.navbar-brand {
 /* Dropdown menu background color */
 
 .dropdown-menu {
+  background: #199E7C;
 }
 
 /* Set flash message bottom margin to 0 */
@@ -81,26 +86,17 @@ a.navbar-brand {
 
 /* Main marketing message and sign up button */
 
-.jumbotron-wrapper {
-  background: #fff;
-  width: 100%;
-}
-
 .jumbotron {
   text-align: center;
-  background: image-url('billboard.png');
-  background-position: 60% center;
-  background-repeat: no-repeat;
-  height: 450px !important;
+  background: #199E7C;
+  height: 425px !important;
 }
 
 .text-container  {
-  /*color: #494948;*/
-  color: #199E7C;
+  color: #fff;
   h1 {
     font-family: 'Pacifico', cursive;
-    /*color: #494948;*/
-    margin-top: 45px;
+    margin-top: 10px;
     margin-bottom: 30px;
   }
   ul {
@@ -119,10 +115,16 @@ a.btn-visited:visited {
 }
 
 .jumbotron .btn {
+  font-family: 'Montserrat', sans-serif;
   padding: 14px 24px;
   font-size: 0.75em;
-  border: none;
   margin-top: 10px;
+  border: 2px solid #fff;
+  background: #199E7C;
+  &:hover {
+    background: #fff;
+    color: #199E7C !important;
+  }
 }
 
 .avatar {
@@ -136,22 +138,30 @@ a.btn-visited:visited {
 
 h4 {
   font-family: 'Montserrat', sans-serif;
-  color: #494948;
   margin-top: -10px;
   margin-bottom: 15px;
 }
 
 .home-padding {
   position: relative;
-  background: #fff;
+  background: #F5F5F0;
   word-wrap: break-word;
   height: 175px;
   margin-bottom: 20px;
-  padding: 15px;
   padding-top: 10px;
   padding-bottom: 5px;
-  p {
-    margin-top: 15px;
+  p.want-to {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    left: 110px;
+    font-size: 1.25em;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .avatar {
+    position: absolute;
+    left: 20px;
+    top: 40px;
   }
 }
 
@@ -162,12 +172,14 @@ h4 {
   margin-top: 10px;
   margin-bottom: 30px;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .btn-success{
   color: #fff !important;
   background: #00936E;
   border: none;
+  font-family: 'Montserrat', sans-serif;
   &:hover {
     background: #199E7C;
   }
@@ -206,4 +218,3 @@ footer {
   text-align: center;
   padding: 20px;
 }
-
