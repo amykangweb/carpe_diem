@@ -1,6 +1,8 @@
-<h1>Editing Goal</h1>
+<% provide(:title, "Edit Goal") %>
+<div class="container form-page">
+  <h3>Edit Goal</h3>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to 'Show', @goal %> |
-<%= link_to 'Back', goals_path %>
+  <%= link_to 'Back', @goal%>
+</div>

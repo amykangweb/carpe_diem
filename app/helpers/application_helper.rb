@@ -8,4 +8,12 @@ module ApplicationHelper
       return false
     end
   end
+
+  def page_title(title = " ")
+    if title.blank?
+      return "Carpe Diem"
+    else
+      return title + " | " + "Carpe Diem"
+    end
+  end
 end
