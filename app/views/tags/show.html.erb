@@ -5,17 +5,22 @@
 
   <% @goals.each do |goal| %>
     <% unless goal.private? %>
-      <div class="col-md-4 text-center">
+
+      <div class="col-md-6 text-center">
         <div class="home-padding">
           <p>
             <%= link_to image_tag(goal.user.gravatar_url, class: 'avatar'), goal.user %>
           </p>
 
-          <p>
+          <p class="want-to">
             <strong><%= link_to goal.user.username.titleize, goal.user %></strong>
             <%= " wants to " %>
             <strong><%= link_to goal.description, goal %></strong>
           </p>
+
+          <% if goal.completed? %>
+            <span class="glyphicon glyphicon-ok completed" title="Completed"></span>
+          <% end %>
 
         </div>
       </div>

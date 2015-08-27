@@ -8,12 +8,10 @@ class Tag < ActiveRecord::Base
 
   def self.size?(obj)
     arr = Tag.top_tags
-    if arr.first(10).include?(obj)
+    if arr.first(20).include?(obj)
       return 'large'
-    elsif arr[10..25].include?(obj)
-      return 'medium'
     else
-      return 'small'
+      return 'medium'
     end
   end
 end
