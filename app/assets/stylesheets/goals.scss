@@ -1,4 +1,4 @@
-/* CSS stylesheet for individual Goal pages. */
+/* CSS stylesheet for individual Goal pages including nested entries. */
 
 .goal-page {
   position: relative;
@@ -47,6 +47,8 @@ p.control {
   margin-top: 15px;
 }
 
+/* Goal page entries CSS */
+
 .new-entry {
   position: absolute;
   left: 20px;
@@ -74,7 +76,7 @@ ul.entries {
     font-size: 17px;
   }
   .entry {
-    padding: 15px 15px 10px 15px;
+    padding: 20px 15px 10px 15px;
   }
 }
 

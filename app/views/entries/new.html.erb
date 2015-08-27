@@ -1,10 +1,20 @@
 <% provide(:title, "New Entry") %>
-<div class="container form-page">
+<div class="container entry-form">
+  <!-- Entry Information -->
+  <p>
+    <strong>
+      <%= link_to @goal.user.username.titleize, @goal.user %>
+      <%= " wants to " %>
+      <%= link_to @goal.description, goal_path(@goal) %>
+    </strong>
+  </p>
+  <div class="container form-page">
 
-  <h3>New Entry</h3>
+    <h3>New Entry</h3>
 
-  <%= render 'form' %>
+    <%= render 'form' %>
 
-  <%= link_to 'Back', goal_path(@goal) %>
+    <%= link_to 'Back', goal_path(@goal) %>
 
+  </div>
 </div>
