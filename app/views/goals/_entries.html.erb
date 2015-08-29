@@ -34,8 +34,10 @@
   <% end %>
 </ul>
 
-<div class="text-center">
-  <p class="pagination">
-    <%= will_paginate @entries, renderer: BootstrapPagination::Rails %>
-  </p>
-</div>
+<% unless @goal.entries.count <= 10 %>
+  <div class="text-center">
+    <p class="pagination">
+      <%= will_paginate @entries, renderer: BootstrapPagination::Rails %>
+    </p>
+  </div>
+<% end %>

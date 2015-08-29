@@ -123,3 +123,16 @@ li.no-entries {
     font-size: 1.2em;
   }
 }
+
+a.social-share-button-twitter {
+  background: image-url('twitter_share.png') no-repeat;
+  width: 150px;
+  height: 50px;
+}
+
+a.social-share-button-facebook {
+  background: image-url('facebook_share.png') no-repeat;
+  width: 150px;
+  height: 50px;
+  margin-left: 5px;
+}
