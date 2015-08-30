@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to :back, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
-        format.html { redirect_to :back, alert: "Comment can't be blank" }
+        format.html { redirect_to :back, alert: @comment.errors.full_messages.to_sentence }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end

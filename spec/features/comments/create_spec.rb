@@ -16,7 +16,7 @@ describe "Comments" do
 
   it "shows error message when comment is blank" do
     create_comment('')
-    expect(page).to have_content("Comment can't be blank")
+    expect(page).to have_content("Body can't be blank")
   end
 
   it "redirects to sign in page when user not signed in" do

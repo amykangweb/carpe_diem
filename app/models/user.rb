@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :reverse_relationship, class_name: 'Friendship',
   foreign_key: 'friend_id'
   has_many :followers, through: :reverse_relationship, source: :user
-  validates :username, presence: true
+  validates :username, presence: true, length: { maximum: 20 }
   validates_uniqueness_of :username
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
