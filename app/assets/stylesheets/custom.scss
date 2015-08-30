@@ -20,6 +20,7 @@ a {
 
 .btn {
   border-radius: 0px !important;
+  font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -116,7 +117,6 @@ a.btn-visited:visited {
 }
 
 .jumbotron .btn {
-  font-family: 'Montserrat', sans-serif;
   padding: 14px 24px;
   font-size: 0.75em;
   margin-top: 10px;
@@ -180,7 +180,6 @@ h4 {
   color: #fff !important;
   background: #00936E;
   border: none;
-  font-family: 'Montserrat', sans-serif;
   &:hover {
     background: #199E7C;
   }
