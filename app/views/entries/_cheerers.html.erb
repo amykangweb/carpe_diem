@@ -1,9 +1,7 @@
-<ul>
-  <% @cheerers.to_a.each do |user| %>
-    <li><strong><%= link_to user.username.titleize, user %></strong> cheered this.</li>
-  <% end %>
-  <% unless @entry.cheering_users.count <= 10 %>
-    <li>...and <strong><%= "#{@entry.cheering_users.count - 10}" %></strong> other users cheered this.</li>
-  <% end %>
-</ul>
+<% @cheerers.each do |user| %>
+  <li><strong><%= link_to user.username.titleize, user %></strong> cheered this.</li>
+<% end %>
+<% unless @entry.cheering_users.count <= 10 %>
+  <li>...and <strong><%= "#{@entry.cheering_users.count - 10}" %></strong> other users cheered this.</li>
+<% end %>
 
