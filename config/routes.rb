@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :entries
     end
     resources :users do
+      get :anagram
       resources :entries
     end
   end
