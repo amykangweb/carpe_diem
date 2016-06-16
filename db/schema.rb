@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728090932) do
+ActiveRecord::Schema.define(version: 20160616165810) do
 
   create_table "cheers", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150728090932) do
     t.integer  "user_id"
     t.boolean  "private",     default: false
     t.boolean  "completed",   default: false
+    t.boolean  "give_up",     default: false
   end
 
   add_index "goals", ["user_id"], name: "index_goals_on_user_id"

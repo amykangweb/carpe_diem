@@ -6,7 +6,11 @@ Rails.application.configure do
   # configuration for letter opener gem
   config.action_mailer.delivery_method = :letter_opener
 
-  # Settings specified here will take precedence over those in config/application.rb.
+  config.after_initialize do
+    Bullet.alert = true
+    Bullet.enable = true
+    Bullet.add_footer = true
+  end
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
