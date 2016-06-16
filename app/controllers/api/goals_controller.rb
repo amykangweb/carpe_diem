@@ -1,4 +1,4 @@
-class Api::GoalsController < ApplicationController
+iclass Api::GoalsController < ApplicationController
   def index
     render json: Goal.all
   end
